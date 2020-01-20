@@ -1,0 +1,109 @@
+
+body
+{
+	margin:0;
+
+}
+/*header*/
+.titreh
+{
+	margin-top: 5%;
+}
+/*FIN HEADER */
+
+/*BACKGROUND*/
+.section-deventure
+{
+	background-image: url(../image/chaussures2.jpg);
+	color:grey;
+	background-size: cover;
+	height: 123%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+	
+}
+/*PREMIERE PARTIE*/
+.presentation
+{
+	width: 30%;
+    background-color: #0000006e;
+    color: white;
+    padding: 2%;
+    border: solid 2PX;
+    box-shadow: 6PX 4PX black;
+    margin-top: 7%;
+    margin-left: 7%;
+}
+.article1
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: -4%;
+
+}
+.article-logo1
+{
+    margin-right: 6%;
+    margin-top: 11%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.presentation
+{
+	display: flex;
+	flex-direction: column;
+}
+.image-inscription
+{
+	box-shadow: 8px 9px 8PX black;
+	height: 100px;
+	width: 100%;
+	border-radius: 100%;
+	background-attachment: fixed;
+}
+.liens
+{
+	width: 25%;
+	height: 25%;
+}
+.div-logo
+{   
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    justify-content: space-around;
+}
+.infobulle1
+{
+	transform : scale(0) rotateX(-180deg);
+	position : absolute;
+	background-color : #2e3048;
+	color : white;
+	border-radius : 5px;
+	padding : 8px;
+	margin-top : 10px;
+	box-shadow : 1px 1px 0 0.5px black;
+	border-bottom : 3px solid rgba(255,255,255,0.3);
+	border-left : 10px solid transparent;
+	border-right : 10px solid transparent;
+	transition : 1s;
+}
+.infobulle1::before
+{
+	content : '';
+	position : absolute;
+	border-bottom : 8px solid #2e3048;
+	border-left : 8px solid transparent;
+	border-right : 8px solid transparent;
+	margin-top : -16px;
+	margin-left : 34px;
+}
+.liens:hover > .infobulle1
+{
+	transform : scale(1) rotateX(0deg);
+}
+
+/*FIN DE PREMIEREPARTIE*/

@@ -1,0 +1,129 @@
+header
+{
+  text-align: center;
+  
+  color :white;
+}
+  /*NAV*/
+a
+{
+  text-decoration: none;
+}
+nav
+   {
+    color: white;
+    position: fixed;
+    height: 7%;
+    width: 100%;
+
+   }
+nav ul
+    {
+    padding: 0px;
+    padding: 0px;
+    
+    text-align: center;
+    font-size: 21px;
+
+    }
+nav li
+      { 
+      	display: inline-block;
+      	width: 160px;
+      	
+      	margin:0px;
+      	padding:0px;      	
+      	line-height: 35px;
+      }
+
+nav li :hover
+             {
+              color: #00bf17;
+             }
+
+nav li a
+        {
+          list-style-type: none;
+          height: 80px;
+        	display: block;
+        	
+        	color: white;
+        }
+.ah
+{
+ 
+    height: 6%;
+    
+}
+#oc-nav-btp
+{
+  background-color:#9e9e9e8c;
+  margin: 0;
+}
+/*Fin de nav*/
+
+/*FOOTER*/
+/* FOOTER*/
+
+footer {
+        background-color: #252640;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 1px black;
+    font-size: 95%;
+        }
+
+
+.oc-lien {
+ 
+  text-decoration: none;
+  color: white;
+}
+
+.jl-lien:hover {
+ 
+  text-decoration: none;
+  color: pink;
+}
+
+.oc-footer-navigation {
+display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 23vh;
+    justify-content: space-evenly;
+}
+
+.oc-container {
+  display: flex;
+  flex-direction : column;
+  align-items: center;
+}
+
+.oc-columns {
+  display: flex;
+  flex-direction : row;
+}
+
+.oc-menu {
+  color: white;
+  margin-left: 35px;
+  font-family: "Montserrat-SemiBold";
+}
+
+.oc-nav2 {
+  margin: 0;
+  text-decoration: none;
+  color: white;
+  list-style: none;
+  font-family: "Montserrat-Regular";
+  font-size: 14px;
+}
+
+.oc-nav3 {
+   margin: 0;
+   text-decoration: none;
+   color: white;
+   list-style: none;
+   font-family: "Montserrat-Regular";
+   font-size: 14px;
+}
