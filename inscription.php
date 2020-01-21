@@ -10,7 +10,7 @@ $connexion=mysqli_connect("localhost","root","","reservationsalles");
 $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
     }
 ?>
-
+<!
 <html>
 <head>
 	   <meta charset="utf-8">
@@ -56,7 +56,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
         <header class="oc-header-btp">
           <h1>Insrivez-vous !<h1>
         </header>
-<form  method="POST" action="" >
+<form class="form" method="POST" action="" >
 <?php
 
 
@@ -66,32 +66,18 @@ if (!empty($_POST["submit"]))
       if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password2'])) 
       {
                  if (($_POST['password']) == ($_POST['password2']))  
-                 {
-      
-    
+                 {    
                   $login= htmlspecialchars($_POST["login"]);
                   $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
-
-
                   $reqdoublon = "SELECT login FROM `utilisateurs` where login=\"$login\";";
-                  $req=mysqli_query($connexion,$reqdoublon);
-                  var_dump($req);
+                  $req=mysqli_query($connexion,$reqdoublon);                 
                   $retour=mysqli_num_rows($req);
-var_dump($retour);
-                  var_dump($retour);
-                  
-                  
-          
-                 
-                
+
                            if($retour==0)
-                           {
-                            
+                           {                            
                             $requete="INSERT INTO utilisateurs(login,password)
-                            VALUES (\"$login\",\"$password\")";
-                
+                            VALUES (\"$login\",\"$password\")";                
                             $inser= mysqli_query($connexion, $requete);
-         
                             // header("location: connexion.php");
                           } 
                           else

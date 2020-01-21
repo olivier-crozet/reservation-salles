@@ -1,0 +1,29 @@
+header
+{
+	color: black;
+    padding-top: 5%;
+    background-size: cover;
+}
+body
+{
+	background-image: url(../image/chaussure.jpg);
+}
+.form
+	{
+		background-color: aqua;
+		width: 50%;
+		margin: auto;
+	    text-align: center; 
+	    border-style: double;
+	    box-shadow: black 2px 2PX 8px;
+	    padding-top: 3%;
+}
+.tablinscri
+{
+	margin: auto;
+    margin-top: 2%;
+}
+.buton-inscription
+{
+	margin: 4%;
+}
