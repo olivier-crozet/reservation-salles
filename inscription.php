@@ -1,7 +1,8 @@
 <?php
 session_start();
                //si on clique sur la connexion
-$connexion = mysqli_connect("localhost","root","","reservationsalles");
+$connexion=mysqli_connect("localhost","root","","reservationsalles");
+
  if (!empty($_POST['formdeconexion'])) 
     {   	
     unset ( $_SESSION ['id'] );
@@ -62,33 +63,50 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 if (!empty($_POST["submit"])) 
 {
 
-  if (!empty($login) && !empty($password) && !empty($password2)) 
-  {
-    if (($_POST['password']) == ($_POST['password2']))  
-    {
+      if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password2'])) 
+      {
+                 if (($_POST['password']) == ($_POST['password2']))  
+                 {
       
     
-    $login= htmlspecialchars($_POST["login"]);
-    $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
+                  $login= htmlspecialchars($_POST["login"]);
+                  $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
 
-    $reqdoublon = "SELECT `login` FROM `utilisateurs` where login=\"$login\";";
+
+                  $reqdoublon = "SELECT login FROM `utilisateurs` where login=\"$login\";";
+                  $req=mysqli_query($connexion,$reqdoublon);
+                  var_dump($req);
+                  $retour=mysqli_num_rows($req);
+var_dump($retour);
+                  var_dump($retour);
+                  
+                  
           
-      $verifdoublon = mysqli_query($connexion, $reqdoublon);
-      $result = mysqli_fetch_array($verifdoublon);
-   }
-   if ($result == $login)
-    {
-     # code...
-   }
-   else
-    echo "les password ne sont pas identique !";
-  }
+                 
+                
+                           if($retour==0)
+                           {
+                            
+                            $requete="INSERT INTO utilisateurs(login,password)
+                            VALUES (\"$login\",\"$password\")";
+                
+                            $inser= mysqli_query($connexion, $requete);
+         
+                            // header("location: connexion.php");
+                          } 
+                          else
+                          {
+                            echo "les password ne sont pas identique !";
+                          }
+               }
+    }
   else
   {
     echo "tous les champ doivent etre compléter !";
   }
 
 }
+
 ?> 
 
  <table class="tablinscri">
