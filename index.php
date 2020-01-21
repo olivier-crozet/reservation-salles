@@ -76,7 +76,7 @@ Cette discipline est inventée par l'Argentin Juan Carlos Ceriani Gravier, membr
                <a class="liens" href="planning.php"><img class="image-inscription" src="image/planning.jpg"><div class="infobulle1">voir le planning !</div></a>
          </div>
          <div class="div-logo">
-               <a class="liens"  href="reservation.php"><img  class="image-inscription" src="image/reservation.png"> <div class="infobulle1">Inscrivez vous ici !</div></a>
+               <a class="liens"  href="reservation.php"><img  class="image-inscription" src="image/reservation.png"> <div class="infobulle1">reseverver votre terrain !</div></a>
             
 
 
@@ -94,17 +94,17 @@ Cette discipline est inventée par l'Argentin Juan Carlos Ceriani Gravier, membr
     <div class="oc-columns">
      <ul class="oc-nav2">
       <li ><a class="oc-lien" href="index.php">accueil</a></li><!--
-  --> <li ><a class="oc-lien" href="livre-or.php">livre or</a></li><!--
-   --><li ><a class="oc-lien" href="projet.php/cv/cvolivier.html">cv</a></li>
+  --> <li ><a class="oc-lien" href="planning.php">planning</a></li>
+   
       <li><a class="oc-lien" href="contact.php">contact</a></li>
     
    </div>
   </div>
  <div class="oc-container">
-  <h3 class="oc-menu">Réseau</h3>
+  <h3 class="oc-menu">sites utiles</h3>
    <div class="oc-columns">
     <ul class="oc-nav2">
-      <li ><a class="oc-lien" href="https://www.linkedin.com/">LinkedIn</a></li>
+      <li ><a class="oc-lien" href="https://www.football365.fr/">foot365</a></li>
       <li ><a class="oc-lien" href="mailto:olivier.crozet@laplateforme.io">mail</a></li>
     </ul>
    </div>

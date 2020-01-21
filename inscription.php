@@ -38,11 +38,11 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
                          {
                          echo "<li><a class=\"ah\"  href=\"profil.php\">profil</a></li>";
                          }
-                         ?>
-               <li><a class="ah"  href="planning.php">voir le planning</a>
+                         ?><!--
+              --><li><a class="ah"  href="planning.php">voir le planning</a><!--
 
                          
-              <?php
+            --><?php
                     if  (isset($_SESSION['id'])) 
                     	{ 
                     		echo  '<li>'.'<a class="ah"  href= "connexion.php">'."connection".'</a>'.'</li>';
@@ -78,12 +78,16 @@ if (!empty($_POST["submit"]))
                             $requete="INSERT INTO utilisateurs(login,password)
                             VALUES (\"$login\",\"$password\")";                
                             $inser= mysqli_query($connexion, $requete);
-                            // header("location: connexion.php");
+                             header("location: connexion.php");
                           } 
                           else
                           {
-                            echo "les password ne sont pas identique !";
+                            echo "se login existe deja !";
                           }
+               }
+               else
+               {
+                echo "les password ne sont pas identique !";
                }
     }
   else
@@ -128,8 +132,32 @@ if (!empty($_POST["submit"]))
           </form>
 
 
-
+</section>
        </main>
+       <footer>
+  <section class="oc-footer-navigation">
+  <div class="oc-container">
+   <h3 class="oc-menu">Menu</h3>
+    <div class="oc-columns">
+     <ul class="oc-nav2">
+      <li ><a class="oc-lien" href="index.php">accueil</a></li><!--
+  --> <li ><a class="oc-lien" href="planning.php">planning</a></li>
+   
+      <li><a class="oc-lien" href="contact.php">contact</a></li>
+    
+   </div>
+  </div>
+ <div class="oc-container">
+  <h3 class="oc-menu">sites utiles</h3>
+   <div class="oc-columns">
+    <ul class="oc-nav2">
+      <li ><a class="oc-lien" href="https://www.football365.fr/">foot365</a></li>
+      <li ><a class="oc-lien" href="mailto:olivier.crozet@laplateforme.io">mail</a></li>
+    </ul>
+   </div>
+  </div>
+ 
+</footer>
      </body>
      </html>
 
