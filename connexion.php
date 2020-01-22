@@ -14,6 +14,8 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 	   <meta charset="utf-8">
      <link rel="stylesheet" type="text/css" href="nav.css">
      <link rel="stylesheet" type="text/css" href="css/index.css">
+     <link rel="stylesheet" type="text/css" href="css/connexion.css">
+
 
      <title>futsal club connexion</title>
 </head>
@@ -38,6 +40,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
                         if (isset($_SESSION['login']))
                          {
                          echo "<li><a class=\"ah\"  href=\"profil.php\">profil</a></li>";
+                         echo "<li><a class=\"ah\"  href=\"reservationsalles.php\">réservation</a></li>";
                          }
                          ?>
                <li><a class="ah"  href="planning.php">voir le planning</a>

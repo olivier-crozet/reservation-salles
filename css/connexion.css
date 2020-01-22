@@ -1,0 +1,18 @@
+
+main
+{
+	margin: auto;
+    margin-top: 6%;
+    background-color: #06a2a4c2;
+    padding: 3%;
+    border: 2px 2px 2px black;
+    border: #82ba09 solid;
+    box-shadow: black 7px 6px 14PX;
+    text-align: center;
+    color: white;
+}
+.envoi-connexion
+{
+	width: 34%;
+    margin-bottom: 5%;
+}
