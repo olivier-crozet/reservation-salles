@@ -80,6 +80,7 @@ if (isset($_POST['envoiconnexion'])) {
        {
         $_SESSION['login']=$_POST['login'];
         $_SESSION['password']=$_POST['password'];
+
         header("location: index.php");
       }
       else
@@ -101,7 +102,7 @@ if (isset($_POST['envoiconnexion'])) {
    {
      unset($_SESSION['login']);
      unset($_SESSION['password']);
-     echo "vous etez déconectez !";
+     header("location:index.php");
    }
 ?>
 
