@@ -1,0 +1,46 @@
+
+.section-deventure
+{
+	background-image: url(../image/vide.Png);
+	color: #fcfcfc;
+	text-align: center;
+	background-attachment: fixed;
+}
+.titre-modif-profil
+{
+	margin-top: 9%;
+	text-align: center;
+    font-size: 2em;
+    text-shadow: black 2% 2% 2%;
+    text-shadow: black 7PX 3px 6px;
+}
+.tablinscri
+{
+	color: #fcfcfc;
+    text-align: right;
+    border: outset wheat 5px;
+    background-color: #73000066;
+    box-shadow: 12px 12px 8px black;
+    padding: 2%;
+    text-shadow: black 2px 4px;
+    font-size: 1.5em;
+    margin:auto;
+}
+.buton-inscription
+{
+	box-shadow: #880202 4px 3px 3px;
+	height: 4em;
+    width: 22%;
+    margin-top: 4%;
+    border: inset 5px #795548;
+    color: white;
+    background-color: #ee07078a;
+    font-size: 100%;
+    text-shadow: black 2px 2px 2px;
+    margin-bottom: 6%;
+}
+.buton-inscription :hover
+{
+background-color: black;
+color: red;
+}

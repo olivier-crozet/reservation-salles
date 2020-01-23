@@ -82,17 +82,17 @@ if (!empty($_POST["submit"]))
                           } 
                           else
                           {
-                            echo "se login existe deja !";
+                            echo "ce login existe deja !";
                           }
                }
                else
                {
-                echo "les password ne sont pas identique !";
+                echo "les passwords ne sont pas identiques !";
                }
     }
   else
   {
-    echo "tous les champ doivent etre compléter !";
+    echo "tous les champs doivent etre complétés !";
   }
 
 }

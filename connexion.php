@@ -61,45 +61,42 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 <main>
 <?php
   $connexion=mysqli_connect("localhost","root","","reservationsalles");
+if (isset($_POST['envoiconnexion'])) 
+{
+        if (!empty($_POST['login']) && !empty($_POST['password']))
+          {
+            $login=htmlspecialchars($_POST['login']);
+            $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
+// $reqid=("SELECT id FROM utilisateurs where login='$login'");
+ //           $idsql = mysqli_query($connexion,$reqid);
+   //         var_dump($reqid);
+     //       $reidsql = mysqli_fetch_array($idsql);
+       //     var_dump($reidsql);
+           // echo $idsql ;
 
-if (isset($_POST['envoiconnexion'])) {
-  # code...
+            //REQUETTE VERIFICATION
+            $requete=("SELECT * FROM utilisateurs  where login = '$login' ");
+            $sql=mysqli_query($connexion,$requete);
+            $retour=mysqli_fetch_array($sql);  
+                 if (password_verify($_POST['password'], $retour['password']))
+                 {
+                  $_SESSION['login']=$_POST['login'];
+                  $_SESSION['password']=$_POST['password'];
 
-
-  if (!empty($_POST['login']) && !empty($_POST['password']))
-   {
-    $login=htmlspecialchars($_POST['login']);
-    $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
-
-     $requete=("SELECT * FROM utilisateurs  where login = '$login' ");
-
-     $sql=mysqli_query($connexion,$requete);
-     $retour=mysqli_fetch_array($sql);
-     
-     
-   
-      if (password_verify($_POST['password'], $retour['password']))
-       {
-        $_SESSION['login']=$_POST['login'];
-        $_SESSION['password']=$_POST['password'];
-
-       // header("location: index.php");
-      }
-      else
-      {
-      echo "le mot de passe ou le login ne correspond pas !";
-      }
-   }
+                  header("location: index.php");
+                }
+            else
+            {
+              echo "le mot de passe ou le login ne correspond pas !";
+            }
+          }
    else
    {
     echo "remplissez tous les champs !";
    }
-   }
+}
 
- //  elseif (!empty($_POST['login'] && empty($_POST['password'])) or !empty($_POST['password']) && empty($_POST['login'])) 
-  // {
-  // echo "remplissez tous les champ !";
-  // }
+ //  BOUTON DECONNEXION
 
    if (isset($_POST['envoideconnexion'])) 
    {
@@ -107,8 +104,8 @@ if (isset($_POST['envoiconnexion'])) {
      unset($_SESSION['password']);
      header("location:index.php");
    }
+   //FORMULAIRE CONNEXION
 ?>
-
   <form class="form-connexion" method="POST" action="connexion.php">
          <table>
            <tr>
@@ -136,9 +133,7 @@ if (isset($_POST['envoiconnexion'])) {
      </form>
 
 </main>
-
-
-
+            <!--FOOTER-->
 <footer>
   <section class="oc-footer-navigation">
   <div class="oc-container">

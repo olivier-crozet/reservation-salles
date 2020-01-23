@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$_SESSION['login'];
+$log=$_SESSION['login'];
+
                //si on clique sur la connexion
  if (!empty($_POST['formdeconexion'])) 
     {   	
@@ -15,7 +19,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
      <link rel="stylesheet" type="text/css" href="nav.css">
      <link rel="stylesheet" type="text/css" href="css/profil.css">
 
-     <title>futsal club</title>
+     <title>futsal club profil</title>
 </head>
        <body class="oc-body-accueil-btp">
   
@@ -57,20 +61,53 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
   <section>
 <?php
    $connexion=mysqli_connect("localhost","root","","reservationsalles");
-
-   
-
+   //TITRE ET SOUS TITRE
+echo "<h1 class='titre-modif-profil'>bonjour"." ".$log."</h1>";
+echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre login !"."</h1>";
    //REQUETTE SELECTLOGIN BY ID
-   $psedo=("SELECT 'login' FROM utilisateurs' where id='$id'");
-   $reqpsedo = mysqli_query($connexion,$psedo);
+   //$psedo=("SELECT 'login' FROM utilisateurs' where login='$id'");
+  // $reqpsedo = mysqli_query($connexion,$psedo);
 
-    $retour=mysqli_fetch_array($reqpsedo);
-var_dump($psedo);
+ //   $retour=mysqli_fetch_array($reqpsedo);
+//var_dump($psedo);
 ?>
+
+ <table class="tablinscri">
+          <tr>
+            <td>
+              <label  for="login">modifier le login :</label>
+        </td>
+        <td>
+              <input type="text" name="login" placeholder="ecrire votre pseudo" value="<?php if(isset($login)){echo $login;} ?>">
+            </td>
+          </tr>
+          <tr>
+              <td>
+                
+                <label  for="password">modifier le mot de passe :</label>
+              </td>
+              <td>
+                <input type="password" name="password" placeholder="ecrire votre mot de passe">
+              </td>
+          </tr>
+          <tr>
+               <td>
+                <label  for="password2">confirmer votre mot de passe :</label>
+              </td>
+              <td>
+                <input type="password" name="password2" placeholder="ecrire votre mot de passe">
+              </td>
+          </tr>
+          
+        </table>
+        <br/>
+                <input  class="buton-inscription" type="submit" name="submit" value="modifier le profil !"/>   
+          </form>
   </section>
 
 
 </main>
+  <!--FOOTER-->
 <footer>
   <section class="oc-footer-navigation">
   <div class="oc-container">
