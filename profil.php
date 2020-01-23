@@ -58,7 +58,14 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 <?php
    $connexion=mysqli_connect("localhost","root","","reservationsalles");
 
-   $psedo=("SELECT login FROM utilisateurs where id")
+   
+
+   //REQUETTE SELECTLOGIN BY ID
+   $psedo=("SELECT 'login' FROM utilisateurs' where id='$id'");
+   $reqpsedo = mysqli_query($connexion,$psedo);
+
+    $retour=mysqli_fetch_array($reqpsedo);
+var_dump($psedo);
 ?>
   </section>
 

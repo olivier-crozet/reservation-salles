@@ -71,17 +71,19 @@ if (isset($_POST['envoiconnexion'])) {
     $login=htmlspecialchars($_POST['login']);
     $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
 
-     $requete=("SELECT * FROM utilisateurs where login = '$login' ");
-     var_dump($requete);
+     $requete=("SELECT * FROM utilisateurs  where login = '$login' ");
+
      $sql=mysqli_query($connexion,$requete);
      $retour=mysqli_fetch_array($sql);
+     
+     
    
       if (password_verify($_POST['password'], $retour['password']))
        {
         $_SESSION['login']=$_POST['login'];
         $_SESSION['password']=$_POST['password'];
 
-        header("location: index.php");
+       // header("location: index.php");
       }
       else
       {
@@ -93,6 +95,7 @@ if (isset($_POST['envoiconnexion'])) {
     echo "remplissez tous les champs !";
    }
    }
+
  //  elseif (!empty($_POST['login'] && empty($_POST['password'])) or !empty($_POST['password']) && empty($_POST['login'])) 
   // {
   // echo "remplissez tous les champ !";
