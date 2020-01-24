@@ -3,13 +3,16 @@ session_start();
 
 $_SESSION['login'];
 $log=$_SESSION['login'];
+$id=$_SESSION['id'];
+
+echo$id;
 
                //si on clique sur la connexion
  if (!empty($_POST['formdeconexion'])) 
     {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	
-$erreur="<p class='codeerreur'>vous n'etes pas connecté !";
+$erreur="<p> class='codeerreur'>vous n'etes pas connecté</p> !";
     }
 ?>
 
@@ -62,16 +65,23 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 <?php
    $connexion=mysqli_connect("localhost","root","","reservationsalles");
    //TITRE ET SOUS TITRE
-echo "<h1 class='titre-modif-profil'>bonjour"." ".$log."</h1>";
+//$selectlog="SELECT login FROM utilisateurs where login=$_SESSION['id']"
+  $psedo=("SELECT login FROM utilisateurs where id='$id'");
+  $reqpsedo = mysqli_query($connexion,$psedo);
+  $retour=mysqli_fetch_array($reqpsedo);
+echo "<h1 class='titre-modif-profil'>bonjour"." $retour[0]"."</h1>";
 echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre login !"."</h1>";
    //REQUETTE SELECTLOGIN BY ID
-   //$psedo=("SELECT 'login' FROM utilisateurs' where login='$id'");
-  // $reqpsedo = mysqli_query($connexion,$psedo);
+   $psedo=("SELECT login FROM utilisateurs where id='$id'");
+  $reqpsedo = mysqli_query($connexion,$psedo);
 
- //   $retour=mysqli_fetch_array($reqpsedo);
-//var_dump($psedo);
+   $retour=mysqli_fetch_array($reqpsedo);
+
+
+   
+          //TABLEAU FORM
 ?>
-
+<form class="form" method="POST" action="">
  <table class="tablinscri">
           <tr>
             <td>
@@ -92,7 +102,7 @@ echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre log
           </tr>
           <tr>
                <td>
-                <label  for="password2">confirmer votre mot de passe :</label>
+                <label  for="newpassword2">confirmer votre mot de passe :</label>
               </td>
               <td>
                 <input type="password" name="password2" placeholder="ecrire votre mot de passe">
@@ -101,8 +111,60 @@ echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre log
           
         </table>
         <br/>
-                <input  class="buton-inscription" type="submit" name="submit" value="modifier le profil !"/>   
-          </form>
+                   <input  class="buton-inscription" type="submit" name="modif" value="modifier le profil !"/>
+         
+<?php
+      if (!empty($_POST['modif']))
+       {       
+         $login = htmlspecialchars($_POST['login']) ;
+         $requete=("SELECT * FROM utilisateurs  where login = '$login' ");
+            $sql=mysqli_query($connexion,$requete);
+            $user=mysqli_fetch_array($sql);
+
+       if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password2'])) 
+       {
+                
+                              
+            if (($_POST['password']) == ($_POST['password2']))  
+                 {    
+                  $login= htmlspecialchars($_POST["login"]);
+                  $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
+                  $reqdoublon = "SELECT login FROM `utilisateurs` where login=\"$login\";";
+                  $req=mysqli_query($connexion,$reqdoublon);                 
+                  $retour=mysqli_num_rows($req);
+
+
+                           if($retour==0)
+                           {                            
+                            $requeteupdate ="UPDATE utilisateurs SET login= '$login',password='$password' WHERE id='$id'";                  
+                            $inser= mysqli_query($connexion,$requeteupdate);
+                             header("location: profil.php");
+                            var_dump($requeteupdate);
+                          } 
+                          else
+                          {
+                            echo "ce login existe deja !";
+                          }
+               }
+               else
+               {
+                echo "les passwords ne sont pas identiques !";
+               }
+    }
+  else
+  {
+    echo "tous les champs doivent etre complétés !";
+  }
+}
+
+
+               // $reqecolog = "SELECT  login FROM utilisateurs where id='".$_SESSION['id']."'";
+//$reqlog = mysqli_query($connexion,$reqecolog);
+//$loginid = mysqli_fetch_row($reqlog);
+
+
+?>
+</form> 
   </section>
 
 
