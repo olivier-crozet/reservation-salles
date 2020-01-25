@@ -7,7 +7,7 @@ $connexion=mysqli_connect("localhost","root","","reservationsalles");
     {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	
-$erreur="<p class='codeerreur'>vous n'etes pas connecté !";
+$erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
 ?>
 <!
@@ -15,7 +15,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 <head>
 	   <meta charset="utf-8">
      <link rel="stylesheet" type="text/css" href="nav.css">
-     <link rel="stylesheet" type="text/css" href="css/inscription.css">
+     <link rel="stylesheet" type="text/css" href="css/reservation.css">
 
      <title>futsal club</title>
 </head>
@@ -59,25 +59,58 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
 
 
         <!--DEBUT TABLE-->
-
+<form class="form" method="GET" action="" >
         <table class="tablinscri">
           <tr>
             <td>
-              <label  for="login"> login :</label>
+              <label  for="titreform"> titre :</label>
         </td>
         <td>
-              <input type="text" name="login" placeholder="ecrire votre pseudo" value="<?php if(isset($login)){echo $login;} ?>">
+              <input type="text" name="titreform" placeholder="ecrire le titre" value="titre">
             </td>
           </tr>
-          <tr>
-              <td>
-                
-                <label  for="password">mot de passe :</label>
-              </td>
-              <td>
-                <input type="password" name="password" placeholder="ecrire votre mot de passe">
-              </td>
+           <tr>
+            <td>
+              <label  for="titreform"> description :</label>
+        </td>
+        <td>
+              <input type="text" name="description" placeholder="Description" value="description">
+            </td>
           </tr>
+           <tr>
+            <td>
+              <label  for="titreform">debut :</label>
+        </td>
+        <td>
+              <input type="date" name="debut" placeholder="debut" value="debut">
+            </td>
+          </tr>
+           <tr>
+            <td>
+              <label  for="titreform">heure du debut :</label>
+        </td>
+        <td>
+              <input type="time" name="debuth" placeholder="" value="debut">
+            </td>
+          </tr>
+           <tr>
+            <td>
+              <label  for="titreform">fin :</label>
+        </td>
+        <td>
+              <input type="date" name="fin" placeholder="" value="fin">
+            </td>
+          </tr>
+           <tr>
+            <td>
+              <label  for="titreform">heure de fin :</label>
+        </td>
+        <td>
+              <input type="time" name="finh" placeholder="" value="finh">
+            </td>
+          </tr>
+        </form>
+        <form class="form" method="POST" action="" >
           <tr>
                <td>
                 <label  for="password2">confirmer votre mot de passe :</label>
@@ -88,6 +121,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
           </tr>
           
         </table>
+      </form>
         <br/>
                 <input  class="buton-inscription" type="submit" name="submit" value="s'inscrire"/>
 

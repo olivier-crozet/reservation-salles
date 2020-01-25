@@ -1,0 +1,30 @@
+
+label
+{
+	text-align: right;
+	color: white;
+}
+.tablinscri
+{
+	background-color: #43634a70;
+    padding: 2%;
+    border: solid 4px #e8e720b8;
+    box-shadow: 7px 7px 12px black;
+    margin: auto;
+    margin-top: 2%;
+}
+.section-deventure
+{
+	width: 100%;
+    background-image: url(../image/chaussure.jpg);
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+}
+.oc-header-btp
+{
+	padding-top: 6%;
+    margin-bottom: 3%;
+    text-shadow: 4px 4px 4px black;
+    color: #fffbfb;
+}
