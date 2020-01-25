@@ -1,7 +1,7 @@
 <?php
 session_start();
                //si on clique sur la connexion
- if (!empty($_POST['formdeconexion'])) 
+ if (!empty($_POST['formdeconexion']) OR !empty($_POST['deconection']))
     {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	

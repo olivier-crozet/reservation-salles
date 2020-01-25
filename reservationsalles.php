@@ -37,13 +37,14 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
                         if (isset($_SESSION['login']))
                          {
                          echo "<li><a class=\"ah\"  href=\"profil.php\">profil</a></li>";
+                         echo "<li><a class=\"ah\"  href=\"reservationsalles.php\">réservation</a></li>";
                          }
-                         ?>
-              <li><a class="ah"  href="planning.php">voir le planning</a>
+                         ?><!--
+              --><li><a class="ah"  href="planning.php">voir le planning</a>
 
                          <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
-                         <?php
-                         if  (isset($_SESSION['id'])) 
+            <?php
+                    if  (isset($_SESSION['id'])) 
                     	{ 
                     		echo '<li>'.'<form  method="POST" action="">'.'<input  class="deco" type="submit" name="deconection" value="se deconnecté">'.'</li>';
                         }
@@ -53,52 +54,13 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
        </nav>
        <main>
         <header class="oc-header-btp">
-          <h1>Insrivez-vous !<h1>
+          <h1>reserver votre salle en remplissant se formulaire !<h1>
         </header>
-<form class="form" method="POST" action="" >
-<?php
 
 
-if (!empty($_POST["submit"])) 
-{
+        <!--DEBUT TABLE-->
 
-      if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password2'])) 
-      {
-                 if (($_POST['password']) == ($_POST['password2']))  
-                 {    
-                  $login= htmlspecialchars($_POST["login"]);
-                  $password= password_hash($_POST["password"], PASSWORD_DEFAULT,array('cost'=> 12));
-                  $reqdoublon = "SELECT login FROM `utilisateurs` where login=\"$login\";";
-                  $req=mysqli_query($connexion,$reqdoublon);                 
-                  $retour=mysqli_num_rows($req);
-
-                           if($retour==0)
-                           {                            
-                            $requete="INSERT INTO utilisateurs(login,password)
-                            VALUES (\"$login\",\"$password\")";                
-                            $inser= mysqli_query($connexion, $requete);
-                             header("location: connexion.php");
-                          } 
-                          else
-                          {
-                            echo "ce login existe deja !";
-                          }
-               }
-               else
-               {
-                echo "les passwords ne sont pas identiques !";
-               }
-    }
-  else
-  {
-    echo "tous les champs doivent etre complétés !";
-  }
-
-}
-
-?> 
-
- <table class="tablinscri">
+        <table class="tablinscri">
           <tr>
             <td>
               <label  for="login"> login :</label>
@@ -127,13 +89,10 @@ if (!empty($_POST["submit"]))
           
         </table>
         <br/>
-                <input  class="buton-inscription" type="submit" name="submit" value="s'inscrire"/>   
-          </form>
+                <input  class="buton-inscription" type="submit" name="submit" value="s'inscrire"/>
 
 
-</section>
-       </main>
-       <footer>
+ <footer>
   <section class="oc-footer-navigation">
   <div class="oc-container">
    <h3 class="oc-menu">Menu</h3>
@@ -159,5 +118,3 @@ if (!empty($_POST["submit"]))
 </footer>
      </body>
      </html>
-
-  <!--FIN NAV ADMIN-->
