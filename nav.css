@@ -134,3 +134,14 @@ display: flex;
    font-family: "Montserrat-Regular";
    font-size: 14px;
 }
+.deco
+{
+  background-color: #9e9e9ef7;
+    border: 2px #801818 solid;
+    box-shadow: 4px 4px 9px black;
+    color: white;
+}
+.deco:hover
+{
+  background-color: red;
+}

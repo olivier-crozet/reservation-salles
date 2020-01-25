@@ -43,14 +43,14 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
                          ?>
                <li><a class="ah"  href="planning.php">voir le planning</a>
 
-                         
+                         <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
               <?php
                     if  (isset($_SESSION['id'])) 
                     	{ 
-                    		echo  '<li>'.'<a class="ah"  href= "connexion.php">'."connection".'</a>'.'</li>';
+                    		echo '<li>'.'<form  method="POST" action="">'.'<input  class="deco" type="submit" name="deconection" value="se deconnecté">'.'</li>';
                         }
                       ?>       
-               <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
+               
           </ul>
 
        </nav>

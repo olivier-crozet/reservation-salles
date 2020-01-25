@@ -5,13 +5,13 @@ $_SESSION['login'];
 $log=$_SESSION['login'];
 $id=$_SESSION['id'];
 
-echo$id;
 
                //si on clique sur la connexion
- if (!empty($_POST['formdeconexion'])) 
+ if (!empty($_POST['formdeconexion']) OR !empty($_POST['deconection'])) 
     {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	
+    header("location: index.php");
 $erreur="<p> class='codeerreur'>vous n'etes pas connecté</p> !";
     }
 ?>
@@ -48,13 +48,17 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté</p> !";
                          }
                          ?>
                <li><a class="ah"  href="planning.php">voir le planning</a>                        
-              <?php
-                    if  (isset($_SESSION['id'])) 
-                    	{ 
-                    		echo  '<li>'.'<a class="ah"  href= "connexion.php">'."connection".'</a>'.'</li>';
-                        }
-                      ?>       
+                    
                <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
+                <?php
+                    if  (isset($_SESSION['id'])) 
+                      { 
+                        echo '<li>'.'<form  method="POST" action="">'.'<input  class="deco" type="submit" name="deconection" value="se deconnecté">'.'</li>';
+                        //echo  '<li>'.'<a class="ah"  href= "connexion.php">'."connection".'</a>'.'</li>';
+                        }
+                        
+                      ?>
+
           </ul>
 
        </nav>
