@@ -120,7 +120,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
               
 <?php
 if (isset($_POST['submit'])) 
-{ echo "oui";
+{ 
     if (strlen($_POST['titre']) > 100) 
     {
       echo "tu te fou de moi !";
@@ -144,37 +144,52 @@ if (isset($_POST['submit']))
                     $heurefin=$_POST['heurfin'];
                     $datenew = $_POST['date'];
                     $datetime = date("Y-m-d H:i:s", strtotime($heuredebut));
-                    $datetimef = date("y-m-d H:i:s", strtotime($heurefin)); 
-                    var_dump($datetimef);
+                    $datetimef = date("Y-m-d H:i:s", strtotime($heurefin)); 
+                    
                       if ($heuredebut > "08:00" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin < "19:00"  ) 
                      {
-                      
-                     var_dump($idresa);
+                      $degrdarcd = strtotime($heuredebut);
+                      $degrdarcf = strtotime($heurefin);
+                      $timeend = time($heuredebut) + ( $degrdarcd);
+                      $timeenf = time($heurefin) + ( $degrdarcf);
+                      $timeresult = $timeenf - $timeend;
+                      var_dump($timeend);
+                      var_dump($timeenf);
+                      var_dump($timeresult);
+                         if ($timeenf - $timeend >= 3600) 
+                         {
+                           var_dump($heuredebut);
+                           echo "ok";
+                         
+                     
 
                       //    if ($heurefin - $heuredebut >= "01:00")
                        //   {
                             
-                 echo "string";
                            
-                        //  }
-                         // else
-                         // {
-                         //   echo "la location est de 1H minimum !";
-                         // }
+                         
+                          
 
-                 $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                         VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
-                           $inser= mysqli_query($connexion, $requetinser);
-                           var_dump($requetinser);
+               // $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+                  //       VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
+                    //      $inser= mysqli_query($connexion, $requetinser);
+                        //   var_dump($requetinser);
                           //   header("location: index.php");
-              
+                       }
+                       else
+                       {
+                        echo "une heure de location minimum !";
+                       }
                    }
                    else
                    {
                     echo "Heure d'ouverture de 8H à 19H !";
                    }
-                }
+                 }
+                else
+              {
                 echo"Le mot de passe ne correspond pas !";
+              }
          }
 }
 ?>
