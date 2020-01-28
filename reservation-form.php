@@ -37,7 +37,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
                         if (isset($_SESSION['login']))
                          {
                          echo "<li><a class=\"ah\"  href=\"profil.php\">profil</a></li>";
-                         echo "<li><a class=\"ah\"  href=\"reservationsalles.php\">réservation</a></li>";
+                         echo "<li><a class=\"ah\"  href=\"reservation-form.php\">réservation</a></li>";
                          }
                          ?><!--
               --><li><a class="ah"  href="planning.php">voir le planning</a>
