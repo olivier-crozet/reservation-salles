@@ -3,7 +3,7 @@ session_start();
                //si on clique sur la connexion
 $connexion=mysqli_connect("localhost","root","","reservationsalles");
 
- if (!empty($_POST['formdeconexion'])) 
+ if (!empty($_POST['formdeconexion']) OR !empty($_POST['deconection'])) 
     {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	
@@ -59,14 +59,14 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
 
 
         <!--DEBUT TABLE-->
-<form class="form" method="GET" action="" >
+<form class="form" method="_POST" action="reservationsalles.php" >
         <table class="tablinscri">
           <tr>
             <td>
               <label  for="titreform"> titre :</label>
         </td>
         <td>
-              <input type="text" name="titreform" placeholder="ecrire le titre" value="titre">
+              <input type="text" name="titre" placeholder="ecrire le titre" value="titre">
             </td>
           </tr>
            <tr>
@@ -74,43 +74,36 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
               <label  for="titreform"> description :</label>
         </td>
         <td>
-              <input type="text" name="description" placeholder="Description" value="description">
+              <input type="text" name="description" placeholder="description" value="description">
             </td>
           </tr>
            <tr>
             <td>
-              <label  for="titreform">debut :</label>
+              <label  for="titreform">date du jour :</label>
         </td>
         <td>
-              <input type="date" name="debut" placeholder="debut" value="debut">
+              <input type="date" name="date" placeholder="date" value="date">
             </td>
           </tr>
-           <tr>
+          
+           
+          <!--parti time-->
+          <tr>
             <td>
-              <label  for="titreform">heure du debut :</label>
+              <label  for="titreform">heure de debut :</label>
         </td>
         <td>
-              <input type="time" name="debuth" placeholder="" value="debut">
+              <input type="time" name="heuredebut" placeholder="" value="">
             </td>
           </tr>
-           <tr>
-            <td>
-              <label  for="titreform">fin :</label>
-        </td>
-        <td>
-              <input type="date" name="fin" placeholder="" value="fin">
-            </td>
-          </tr>
-           <tr>
+          <tr>
             <td>
               <label  for="titreform">heure de fin :</label>
         </td>
         <td>
-              <input type="time" name="finh" placeholder="" value="finh">
+              <input type="time" name="heurfin" placeholder="" value="">
             </td>
           </tr>
-        </form>
-        <form class="form" method="POST" action="" >
           <tr>
                <td>
                 <label  for="password2">confirmer votre mot de passe :</label>
@@ -121,11 +114,71 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
           </tr>
           
         </table>
-      </form>
+      
         <br/>
-                <input  class="buton-inscription" type="submit" name="submit" value="s'inscrire"/>
+                <input  class="buton-inscription" type="submit" name="submit" value="Valider"/>
+              
+<?php
+if (isset($_POST['submit'])) 
+{ echo "oui";
+    if (strlen($_POST['titre']) > 100) 
+    {
+      echo "tu te fou de moi !";
+    }
+    else{
 
+  
+      $titreresa=htmlspecialchars($_POST['titre']);
+      $description=htmlspecialchars($_POST['description']);
+      $idresa=($_SESSION['id']);
+      $password2= password_hash($_POST["password2"], PASSWORD_DEFAULT,array('cost'=> 12));
+      
 
+         $requete=("SELECT password FROM utilisateurs  where id = '$idresa' ");
+            $sql=mysqli_query($connexion,$requete);
+            $retour=mysqli_fetch_array($sql);
+
+             if (password_verify($_POST['password2'], $retour['password']))
+                 { 
+                    $heuredebut=$_POST['heuredebut'];
+                    $heurefin=$_POST['heurfin'];
+                    $datenew = $_POST['date'];
+                    $datetime = date("Y-m-d H:i:s", strtotime($heuredebut));
+                    $datetimef = date("y-m-d H:i:s", strtotime($heurefin)); 
+                    var_dump($datetimef);
+                      if ($heuredebut > "08:00" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin < "19:00"  ) 
+                     {
+                      
+                     var_dump($idresa);
+
+                      //    if ($heurefin - $heuredebut >= "01:00")
+                       //   {
+                            
+                 echo "string";
+                           
+                        //  }
+                         // else
+                         // {
+                         //   echo "la location est de 1H minimum !";
+                         // }
+
+                 $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+                         VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
+                           $inser= mysqli_query($connexion, $requetinser);
+                           var_dump($requetinser);
+                          //   header("location: index.php");
+              
+                   }
+                   else
+                   {
+                    echo "Heure d'ouverture de 8H à 19H !";
+                   }
+                }
+                echo"Le mot de passe ne correspond pas !";
+         }
+}
+?>
+ </form> 
  <footer>
   <section class="oc-footer-navigation">
   <div class="oc-container">
