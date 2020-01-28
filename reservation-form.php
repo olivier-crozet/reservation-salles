@@ -9,6 +9,10 @@ $connexion=mysqli_connect("localhost","root","","reservationsalles");
     unset ($_SESSION['login']);	
 $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
+    if (empty($_SESSION['id'])) 
+    {
+      header ("location: connexion.php") ;
+    }
 ?>
 <!
 <html>
@@ -153,24 +157,22 @@ if (isset($_POST['submit']))
                       $timeend = time($heuredebut) + ( $degrdarcd);
                       $timeenf = time($heurefin) + ( $degrdarcf);
                       $timeresult = $timeenf - $timeend;
-                     
-                         if ($timeenf - $timeend >= 3600) 
+                      $heure = $timeenf - $timeend ;
+                      var_dump($heure);
+                         if ($heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
                          { 
-                          var_dump($timeend);
-                          var_dump($timeenf);
-                          var_dump($timeresult);
-                           var_dump($heuredebut);
+                       
                            echo "ok";
                                             
-                $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                         VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
-                         $inser= mysqli_query($connexion, $requetinser);
+             //   $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+             //            VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
+               //          $inser= mysqli_query($connexion, $requetinser);
                       
                           //   header("location: index.php");
                        }
                        else
                        {
-                        echo "une heure de location minimum !";
+                        echo "location par heure !";
                        }
                    }
                    else
