@@ -153,27 +153,19 @@ if (isset($_POST['submit']))
                       $timeend = time($heuredebut) + ( $degrdarcd);
                       $timeenf = time($heurefin) + ( $degrdarcf);
                       $timeresult = $timeenf - $timeend;
-                      var_dump($timeend);
-                      var_dump($timeenf);
-                      var_dump($timeresult);
+                     
                          if ($timeenf - $timeend >= 3600) 
-                         {
+                         { 
+                          var_dump($timeend);
+                          var_dump($timeenf);
+                          var_dump($timeresult);
                            var_dump($heuredebut);
                            echo "ok";
-                         
-                     
-
-                      //    if ($heurefin - $heuredebut >= "01:00")
-                       //   {
-                            
-                           
-                         
-                          
-
-               // $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                  //       VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
-                    //      $inser= mysqli_query($connexion, $requetinser);
-                        //   var_dump($requetinser);
+                                            
+                $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+                         VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
+                         $inser= mysqli_query($connexion, $requetinser);
+                      
                           //   header("location: index.php");
                        }
                        else
