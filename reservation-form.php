@@ -9,7 +9,7 @@ $connexion=mysqli_connect("localhost","root","","reservationsalles");
     unset ($_SESSION['login']);	
 $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
-    if (empty($_SESSION['id'])) 
+    if (!isset($_SESSION['login'])) 
     {
       header ("location: connexion.php") ;
     }
@@ -146,29 +146,73 @@ if (isset($_POST['submit']))
                  { 
                     $heuredebut=$_POST['heuredebut'];
                     $heurefin=$_POST['heurfin'];
+                    $testheure = strtotime($_POST['heuredebut']);
                     $datenew = $_POST['date'];
-                    $datetime = date("Y-m-d H:i:s", strtotime($heuredebut));
-                    $datetimef = date("Y-m-d H:i:s", strtotime($heurefin)); 
-                    
+                    $datetime = $datenew." ".$heuredebut;
+                    $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
+                     $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
+                    //
                       if ($heuredebut > "08:00" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin < "19:00"  ) 
                      {
+                      //preparation heure 
                       $degrdarcd = strtotime($heuredebut);
-                      $degrdarcf = strtotime($heurefin);
-                      $timeend = time($heuredebut) + ( $degrdarcd);
-                      $timeenf = time($heurefin) + ( $degrdarcf);
-                      $timeresult = $timeenf - $timeend;
-                      $heure = $timeenf - $timeend ;
-                      var_dump($heure);
-                         if ($heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
-                         { 
-                       
-                           echo "ok";
-                                            
-             //   $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-             //            VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
-               //          $inser= mysqli_query($connexion, $requetinser);
                       
-                          //   header("location: index.php");
+                      $degrdarcf = strtotime($heurefin);   
+                       
+                      $heure = $degrdarcf - $degrdarcd;
+                      //date et temp time stamp
+                      $datetimest = strtotime($datetime);
+                      var_dump($datetimest);
+                       
+
+                      //if heure pleine
+                         if ($heure == 0 or $heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
+                         { 
+                            //preparation samedi dimache
+                             $tabDate = explode('-', $_POST['date']); //FONCTION ??
+                             $timestamp = mktime(0, 0, 0, $tabDate[1], $tabDate[2], $tabDate[0]);//FONCTION ??
+                              $jour = date('w', $timestamp);
+
+                              //if samedi dimache 
+                              if ($jour != "6" && $jour != "0")
+                               {    //test
+                                   // $timestamppost = strtotime($datenew);
+                                    
+                                    echo"top";
+                                    //fintest
+                                    $requete=("SELECT debut FROM reservations where debut = '$datetime'");
+                                  
+                                    $sql=mysqli_query($connexion,$requete);
+                                   
+                                    $retour=mysqli_num_rows($sql);
+                                    $retourt=mysqli_fetch_array($sql);
+                                    //temp timestamp bdd
+                                    $retourstamp=strtotime($retourt[0]);
+                                    var_dump($retourstamp);
+                                 
+                                        if ( $retour == 0  && $retourstamp != $datetimest )
+                                         {
+                                         
+                                        
+                                   
+                          //   $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+                          //  VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
+                          //  $inser= mysqli_query($connexion, $requetinser);
+                      
+                            // header("location: index.php");
+                                   echo "i am the boss !";
+
+                                   }
+                                   else
+                                   {
+                                    echo "ces dates sont deja prise !";
+                                   }
+                              }
+
+                           else
+                            {
+                            echo "fermer le samedi et dimanche !";
+                            }
                        }
                        else
                        {
