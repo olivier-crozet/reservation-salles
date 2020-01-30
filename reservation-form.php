@@ -167,7 +167,11 @@ if (isset($_POST['submit']))
                        
 
                       //if heure pleine
+
                          if ($heure == 0 or $heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
+                          //poissible aussi
+                          //if( $heure %3600 ==0)  DIVISIBLE PAR 3600
+
                          { 
                             //preparation samedi dimache
                              $tabDate = explode('-', $_POST['date']); //FONCTION ??

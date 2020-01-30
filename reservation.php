@@ -14,12 +14,14 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
       header ("location: connexion.php") ;
     }
 ?>
-<!
+
 <html>
 <head>
 	   <meta charset="utf-8">
      <link rel="stylesheet" type="text/css" href="nav.css">
      <link rel="stylesheet" type="text/css" href="css/reservation.css">
+    <link rel="stylesheet" type="text/css" href="css/reservationbis.css">
+
 
      <title>futsal club</title>
 </head>
@@ -44,7 +46,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
                          echo "<li><a class=\"ah\"  href=\"reservation-form.php\">réservation</a></li>";
                          }
                          ?><!--
-              --><li><a class="ah"  href="planning.php">voir le planning</a>
+              --><li><a class="ah"  href="planning.php">voir le planning</a></li>
 
                          <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
             <?php
@@ -56,9 +58,65 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
           </ul>
 
        </nav>
-
+       <header>
+         <h1>vos reservation !</h1>
+       </header>
        <main>
-         
+        <?php
+
+  if (isset($_SESSION['id'])) 
+  {
+    $idresa=$_SESSION['id'];
+    $login=$_SESSION['login'];
+
+        $reqpse = "SELECT login FROM utilisateurs where id=$idresa";
+        $reqpsebdd = mysqli_query($connexion,$reqpse) ;
+        $balek = mysqli_fetch_array($reqpsebdd);
+        $couille = $balek['login'];
+        
+
+
+        $req_jointe = "SELECT  debut,  fin  FROM reservations  where id_utilisateur=$idresa " ;
+        
+  $req_jointe_bdd = mysqli_query($connexion,$req_jointe);
+
+    $row = mysqli_fetch_all($req_jointe_bdd);
+    
+  }
+?>
+
+
+           <div class="div-affichage">
+       <table class="table-affichage">        
+      <?php 
+
+
+     foreach ( $row as $key )
+      {
+          if (!empty($key[1]))
+          {
+            
+            
+              if (isset($login) == $key[0]) 
+          
+                  {
+                    echo "<tr class=\"psedo-affichage\"><td class=\"taillepse\" >".$couille.":"."</td>"."<td class=\"texttd\" >".$key[0]."</td>"."<td class=\"date-affichage\">".$key[1]."<td>"."</tr>";
+                  }
+
+                else{
+                  echo "connecte toi blerot";
+                      }
+         }
+         }             
+     
+
+//endforeach ;
+?>
+
+</table>
+</section>
+</div>
+
        </main>
 
 
@@ -73,7 +131,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
    
       <li><a class="oc-lien" href="contact.php">contact</a></li>
     
-   </div>
+   </div> 
   </div>
  <div class="oc-container">
   <h3 class="oc-menu">sites utiles</h3>
@@ -84,6 +142,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     </ul>
    </div>
   </div>
+
  
 </footer>
      </body>
