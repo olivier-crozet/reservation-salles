@@ -147,12 +147,13 @@ if (isset($_POST['submit']))
                     $heuredebut=$_POST['heuredebut'];
                     $heurefin=$_POST['heurfin'];
                     $testheure = strtotime($_POST['heuredebut']);
+
                     $datenew = $_POST['date'];
                     $datetime = $datenew." ".$heuredebut;
                     $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
                      $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
                     //
-                      if ($heuredebut > "08:00" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin < "19:00"  ) 
+                      if ($heuredebut >= "07h59" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin <= "19:00"  ) 
                      {
                       //preparation heure 
                       $degrdarcd = strtotime($heuredebut);
@@ -175,33 +176,29 @@ if (isset($_POST['submit']))
 
                               //if samedi dimache 
                               if ($jour != "6" && $jour != "0")
-                               {    //test
-                                   // $timestamppost = strtotime($datenew);
-                                    
-                                    echo"top";
-                                    //fintest
+                               {    
                                     $requete=("SELECT debut FROM reservations where debut = '$datetime'");
                                   
                                     $sql=mysqli_query($connexion,$requete);
                                    
                                     $retour=mysqli_num_rows($sql);
                                     $retourt=mysqli_fetch_array($sql);
-                                    //temp timestamp bdd
                                     $retourstamp=strtotime($retourt[0]);
-                                    var_dump($retourstamp);
+                                    
+                                   
                                  
                                         if ( $retour == 0  && $retourstamp != $datetimest )
                                          {
                                          
                                         
                                    
-                          //   $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                          //  VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimef\",\"$idresa\");";                
-                          //  $inser= mysqli_query($connexion, $requetinser);
+                             $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
+                           VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$heurefin\",\"$idresa\");";                
+                            $inser= mysqli_query($connexion, $requetinser);
                       
-                            // header("location: index.php");
-                                   echo "i am the boss !";
-
+                         
+                               header("location:reservation.php?$titreresa?id=$idresa");
+                                  echo "vaniquer ta mere !";
                                    }
                                    else
                                    {
