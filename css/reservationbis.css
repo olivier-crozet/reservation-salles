@@ -1,4 +1,23 @@
-.div-affichage
+body
 {
-	color:white;
+	margin : 0% ; 
+}
+
+.titreresah
+{
+	padding-top: 5%;
+    text-shadow: black 2px 2px 4px;
+    font-size: 30px;
+}
+.table-affichage
+{
+	margin: auto;
+    background-color: #12141294;
+    color: white;
+    width: 39%;
+    height: 30%;
+    text-align: center;
+    border: wheat 2px 2px;
+    border: inset 3px #d1e308;
+    box-shadow: 10px 10px 12px black;
 }

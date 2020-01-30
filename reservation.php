@@ -58,7 +58,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
           </ul>
 
        </nav>
-       <header>
+       <header class="titreresah">
          <h1>vos reservation !</h1>
        </header>
        <main>
@@ -87,7 +87,12 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
 
 
            <div class="div-affichage">
-       <table class="table-affichage">        
+       <table class="table-affichage">  
+               <tr class=psedo-affichage>
+                  <td class="taillepse">titre</td>
+                  <td class="texttd">debut</td>  
+                  <td date-affichage >fin</td>    
+               </tr>         
       <?php 
 
 
@@ -100,6 +105,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
               if (isset($login) == $key[0]) 
           
                   {
+                     
                     echo "<tr class=\"psedo-affichage\"><td class=\"taillepse\" >".$couille.":"."</td>"."<td class=\"texttd\" >".$key[0]."</td>"."<td class=\"date-affichage\">".$key[1]."<td>"."</tr>";
                   }
 

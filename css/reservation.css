@@ -1,4 +1,8 @@
 
+body
+{
+        margin: 0;
+}
 label
 {
 	text-align: right;
@@ -27,4 +31,9 @@ label
     margin-bottom: 3%;
     text-shadow: 4px 4px 4px black;
     color: #fffbfb;
+}
+.buton-inscription
+{
+    margin-bottom: 5%;
+  
 }

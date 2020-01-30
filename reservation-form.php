@@ -150,6 +150,7 @@ if (isset($_POST['submit']))
 
                     $datenew = $_POST['date'];
                     $datetime = $datenew." ".$heuredebut;
+                     $datetimefin = $datenew." ".$heurefin;
                     $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
                      $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
                     //
@@ -163,7 +164,7 @@ if (isset($_POST['submit']))
                       $heure = $degrdarcf - $degrdarcd;
                       //date et temp time stamp
                       $datetimest = strtotime($datetime);
-                      var_dump($datetimest);
+                      
                        
 
                       //if heure pleine
@@ -197,12 +198,11 @@ if (isset($_POST['submit']))
                                         
                                    
                              $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                           VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$heurefin\",\"$idresa\");";                
+                           VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\");";                
                             $inser= mysqli_query($connexion, $requetinser);
-                      
-                         
-                               header("location:reservation.php?$titreresa?id=$idresa");
-                                  echo "vaniquer ta mere !";
+                    
+                              header("location:reservation.php?$titreresa?id=$idresa");
+                                  
                                    }
                                    else
                                    {

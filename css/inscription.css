@@ -31,7 +31,9 @@ body
 }
 .buton-inscription
 {
-	margin: 4%;
+	  margin: auto;
+    width: 6%;
+    margin-left: 48%;
 }
 .section-deventure
 {
