@@ -1,0 +1,34 @@
+
+.table-affichage
+{
+width: 100%;
+   
+    color: white;	
+}
+.section-deventure
+{
+	background-image: url(../image/ballonterrainjpeg.jpeg);
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+main
+{
+	    padding-top: 3%;
+}
+.div-tabl
+{
+	margin: auto;
+    width: 70%;
+    background-color: #242b2ea1;
+    color: white;
+    border: solid 4PX #cfe305;
+    padding: 1%;
+    box-shadow: ;
+    height: 60%;
+    margin-top: 5%;
+    overflow: overlay;	
+}
+table
+{
+	border: solid white 2px;
+}

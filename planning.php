@@ -19,7 +19,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
 <head>
 	   <meta charset="utf-8">
      <link rel="stylesheet" type="text/css" href="nav.css">
-     <link rel="stylesheet" type="text/css" href="css/reservation.css">
+     <link rel="stylesheet" type="text/css" href="css/planning.css">
 
      <title>futsal club</title>
 </head>
@@ -60,38 +60,97 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
         <header class="oc-header-btp">
           <h1>reserver votre salle en remplissant se formulaire !<h1>
         </header>
+        <div class="div-tabl">
 
+<table class="table-affichage">
+  <thead>
+    <tr><td>jour</td><td>titre</td><td>debut</td><td>fin</td><td>date</td></tr>
+  </thead>
 <?php
 //jour d'aujourduit
 $jour = date('l');
 //anne mois jour
 $datetimed = date("Y-m-d");
-var_dump($datetimed);
+$data = date("d-m-Y");
 //heure
 $h = date("H");
-var_dump($h);
-//compteur
-$i = 1;
-var_dump($i);
 
-
-//JOUR DE DEMAIN
+$jourtimestamp = strtotime($jour);
 
 
 
-      echo "$jour"." "."$h"." "."$datetimed"."</br>";
+echo "$h h";
 
-     while ( $i <= 7)
-     {
-      $jourtimestamp = strtotime($jour);
-      $jourtimestamp == $jourtimestamp++ ;
-      $demainjour = $jourtimestamp +  86400;
+$popey = $jourtimestamp;
+$jourr = gmdate($popey);
+$reqtitrea = "SELECT * FROM  `reservations` where tempsegonde=$popey ;";
+  $req_jointe_bdda = mysqli_query($connexion,$reqtitrea);
+    $una = mysqli_fetch_assoc($req_jointe_bdda);
 
 
-      $demain = gmdate("l", $demainjour);
-       echo "$demain";
+      echo "<tr><td>".$jour."</td><td>".$una['titre']."</td><td>".$una['debut']."</td><td>".$una['fin']."</td><td>".$data."</td></tr>";
+
+      $demainjour = $jourtimestamp + 86400 ;
+       $demain = gmdate("l", $demainjour);
+       $demaind = gmdate("d-m-Y",$demainjour);
       
-       $i == $i++;
-     }
+  $reqtitre = "SELECT * FROM  `reservations` where tempsegonde=$demainjour ;";
+  $req_jointe_bdd = mysqli_query($connexion,$reqtitre);
+    $un = mysqli_fetch_assoc($req_jointe_bdd);
+  
+   
+       echo "<tr><td>$demain</td><td>".$un['titre']."</td><td>".$un['debut']."</td><td>".$un['fin']."</td><td>".$demaind."</td></tr>";
+      
+
+
+       $pd = $demainjour + 86400 ;
+       $jour2 = gmdate("l",$pd);
+
+
+       echo "<tr><td>$jour2</td></tr>";
+
+       $pa = $pd + 86400 ;
+       $jour3 = gmdate("l",$pa);
+       echo "<tr><td>$jour3</td></tr>";
+
+       $pe = $pa + 86400 ;
+       $jour4 = gmdate("l",$pe);
+       echo "<tr><td>$jour4</td></tr>";
+
+       $pu = $pe + 86400 ;
+       $jour5 = gmdate("l",$pu);
+       echo "<tr><td>$jour5</td></tr>";
+
+       $po = $pu + 86400 ;
+       $jour6 = gmdate("l",$po);
+       echo "<tr><td>$jour6</td></tr>";
+
+       $pi = $po + 86400 ;
+       $jour7 = gmdate("l",$pi);
+       echo  "<tr><td>$jour7</td></tr>";
+
+
+    //    $i++;
+
+
+//}
+//while ( $i <= 7)
+  //   {
+      
+
+    //  $demainjour = $jourtimestamp +  86400;
+    //   $demain = gmdate("l", $demainjour);
+     //  echo "$demain";
+      
+     //  $i++;
+     
+     //}
+//}
 
 ?>
+</table>
+</div>
+</main>
+</section>
+</body>
+</html>

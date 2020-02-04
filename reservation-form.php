@@ -164,7 +164,7 @@ if (isset($_POST['submit']))
                       $heure = $degrdarcf - $degrdarcd;
                       //date et temp time stamp
                       $datetimest = strtotime($datetime);
-                      
+                      var_dump($datetimest);
                        
 
                       //if heure pleine
@@ -195,14 +195,17 @@ if (isset($_POST['submit']))
                                         if ( $retour == 0  && $retourstamp != $datetimest )
                                          {
                                          
-                                        
+                                         $datex = $datenew;
+                                        var_dump($datex);
+                                        $datex = strtotime($datex);
                                    
-                             $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur)
-                           VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\");";                
-                            $inser= mysqli_query($connexion, $requetinser);
+                             $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur,tempsegonde)
+                             VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$datex\");";                
+                             $inser= mysqli_query($connexion, $requetinser);
                     
-                              header("location:reservation.php?$titreresa?id=$idresa");
-                                  
+                             // header("location:reservation.php?$titreresa?id=$idresa");
+                                  var_dump($requetinser);
+                                  var_dump($inser);
                                    }
                                    else
                                    {
