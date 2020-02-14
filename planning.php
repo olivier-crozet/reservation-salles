@@ -107,17 +107,10 @@ $a = count($una);
        $demaind = gmdate("Y-m-d",$demainjour);
        $jour1 = $demaind.' '.'08:00:00';
        $jour1b = $demaind.' '.'19:00:00';
-echo "<tr><td>".$jour."</td>";
-foreach ($una as $key ) {
- 
-  //     $i = 0;
-  //     while ( $i <= $a) 
-    //   {
-        
-        echo  "<tr><td>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
-   //      $i = $i + 1 ;
-    //   }
-  
+
+        echo "<tr ><td>".$jour."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data."</td></tr>";
+foreach ($una as $key ) {      
+        echo  "<tr class=\"lignea\"><td>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
                        }  
 
   //jour1    
@@ -127,14 +120,13 @@ foreach ($una as $key ) {
     $pd = $demainjour + 86400 ;
          $data1 = date("d-m-Y", strtotime("+1 days"));
          var_dump($data1);
-      // $data1 = $data = date("d-m-Y");
        $jour2 = gmdate("l",$pd);
        $jourr2 = gmdate("Y-m-d",$pd);
        $day2 = $jourr2.' '.'08:00:00';
        $day2b = $jourr.' '.'19:00:00';
-       echo "<tr><td>".$demain."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data1."</td></tr>";
+       echo "<tr ><td>".$demain."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data1."</td></tr>";
 foreach ($un as $ke ) {  
-       echo "<tr><td>   </td><td>".$ke['titre']."</td><td>".$ke['debut']."</td><td>".$ke['fin']."</td><td>".$data1."</td></tr>";     
+       echo "<tr class=\"ligneb\" ><td>  </td><td>".$ke['titre']."</td><td>".$ke['debut']."</td><td>".$ke['fin']."</td><td>".$data1."</td></tr>";     
                          }
 
 //jour2
@@ -149,7 +141,7 @@ foreach ($un as $ke ) {
        $day3b = $jour33.' '.'19:00:00';
        echo "<tr><td>".$jour2."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data2."</td></tr>";
 foreach ($unb as $ky ) {
-       echo "<tr><td>   </td><td>".$ky['titre']."</td><td>".$ky['debut']."</td><td>".$ky['fin']."</td><td>".$data2."</td></tr>";
+       echo "<tr class=\"lignec\"><td>   </td><td>".$ky['titre']."</td><td>".$ky['debut']."</td><td>".$ky['fin']."</td><td>".$data2."</td></tr>";
                         }
 //jour3 
        $requettejour3 ="SELECT * FROM `reservations` where debut BETWEEN '$day3' AND '$day3b' ;";
@@ -159,80 +151,63 @@ foreach ($unb as $ky ) {
         $data3 = date("d-m-Y", strtotime("+2 days"));
         $jour4 = gmdate("l",$paa);
         $jour44 = gmdate("Y-m-d",$paa);
-        $day4 = $jour4.' '.'08:00:00';
+        $day4 = $jour44.' '.'08:00:00';
         $day4b = $jour44.' '.'19:00:00';
         echo "<tr><td>".$jour3."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data3."</td></tr>";
 foreach ($unc as $keeb ) {
        
-       echo "<tr><td>".$jour3."</td><td>".$keeb[1]."</td><td>".$keeb[3]."</td><td>".$keeb[4]."</td><td>".$data3."</td></tr>";
+       echo "<tr <tr class=\"ligned\"><td> </td><td>".$keeb[1]."</td><td>".$keeb[3]."</td><td>".$keeb[4]."</td><td>".$data3."</td></tr>";
                               }              
   //jour4
            $requettejour4 ="SELECT * FROM `reservations` where debut BETWEEN '$day4' AND '$day4b' ;";
         $req_jointe_bddea = mysqli_query($connexion,$requettejour4);
         $unc1 = mysqli_fetch_ALL($req_jointe_bddea); 
+        var_dump($unc1);
         $paa1 = $paa +86400 ;
         $data4 = date("d-m-Y", strtotime("+3 days"));
         $jour5 = gmdate("l",$paa1);
         $jour55 = gmdate("Y-m-d",$paa1);
-        $day5 = $jour5.' '.'08:00:00';
+        $day5 = $jour55.' '.'08:00:00';
         $day5b = $jour55.' '.'19:00:00';
         echo "<tr><td>".$jour4."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data4."</td></tr>";
 foreach ($unc1 as $keeb1 ) {
        
-       echo "<tr><td>".$jour4."</td><td>".$keeb1[1]."</td><td>".$keeb1[3]."</td><td>".$keeb1[4]."</td><td>".$data4."</td></tr>";
+       echo "<tr class=\"lignee\"><td>  </td><td>".$keeb1[1]."</td><td>".$keeb1[3]."</td><td>".$keeb1[4]."</td><td>".$data4."</td></tr>";
                               }              
 
 //jour5
 
         $requettejour5 ="SELECT * FROM `reservations` where debut BETWEEN '$day5' AND '$day5b' ;";
         $req_jointe_bddea1 = mysqli_query($connexion,$requettejour5);
-        $unc2 = mysqli_fetch_ALL($req_jointe_bdde1);
+        $unc2 = mysqli_fetch_ALL($req_jointe_bddea1);
         $paa2 = $paa1 +86400 ;
         $data5 = date("d-m-Y", strtotime("+4 days"));
         $jour6 = gmdate("l",$paa2);
         $jour66 = gmdate("Y-m-d",$paa2);
-        $day6 = $jour6.' '.'08:00:00';
+        $day6 = $jour66.' '.'08:00:00';
         $day6b = $jour66.' '.'19:00:00';
         echo "<tr><td>".$jour5."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data5."</td></tr>";
 foreach ($unc2 as $keeb2 ) {
        
-       echo "<tr><td>".$jour5."</td><td>".$keeb2[1]."</td><td>".$keeb2[3]."</td><td>".$keeb2[4]."</td><td>".$data5."</td></tr>";
+       echo "<tr class=\"lignef\"><td>  </td><td>".$keeb2[1]."</td><td>".$keeb2[3]."</td><td>".$keeb2[4]."</td><td>".$data5."</td></tr>";
                               } 
 
 //jour6
 
-        $requettejour5 ="SELECT * FROM `reservations` where debut BETWEEN '$day6' AND '$day6b' ;";
+        $requettejour6 ="SELECT * FROM `reservations` where debut BETWEEN '$day6' AND '$day6b' ;";
         $req_jointe_bddea2 = mysqli_query($connexion,$requettejour6);
-        $unc2 = mysqli_fetch_ALL($req_jointe_bdde2);
+        $unc3 = mysqli_fetch_ALL($req_jointe_bddea2);
         $paa3 = $paa2 +86400 ;
         $data6 = date("d-m-Y", strtotime("+5 days"));
         $jour7 = gmdate("l",$paa3);
         $jour77 = gmdate("Y-m-d",$paa3);
-        $day7 = $jour7.' '.'08:00:00';
+        $day7 = $jour77.' '.'08:00:00';
         $day7b = $jour77.' '.'19:00:00';
-        echo "<tr><td>".$jour6."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data7."</td></tr>";
+        echo "<tr><td>".$jour6."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data6."</td></tr>";
 foreach ($unc3 as $keeb3 ) {
        
-       echo "<tr><td>".$jour6."</td><td>".$keeb3[1]."</td><td>".$keeb3[3]."</td><td>".$keeb3[4]."</td><td>".$data6."</td></tr>";
+       echo "<tr class=\"ligneg\"><td>  </td><td>".$keeb3[1]."</td><td>".$keeb3[3]."</td><td>".$keeb3[4]."</td><td>".$data6."</td></tr>";
                               } 
-
-  //     $pe = $pa + 86400 ;
-   //    $jour4 = gmdate("l",$pe);
-   //    echo "<tr><td>$jour4</td></tr>";
-
-   //    $pu = $pe + 86400 ;
-   //    $jour5 = gmdate("l",$pu);
-    //   echo "<tr><td>$jour5</td></tr>";
-
-    //   $po = $pu + 86400 ;
-    //   $jour6 = gmdate("l",$po);
-     //  echo "<tr><td>$jour6</td></tr>";
-
-     //  $pi = $po + 86400 ;
-     //  $jour7 = gmdate("l",$pi);
-      // echo  "<tr><td>$jour7</td></tr>";
-
-
 
 
 ?>
