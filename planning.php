@@ -62,7 +62,10 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
         </header>
         <div class="div-tabl">
 
+          <!--DEBUT CALENDRIER-->
+
 <table class="table-affichage">
+  <!--titre des colone-->
   <thead>
     <tr><td>jour</td><td>titre</td><td>debut</td><td>fin</td><td>date</td></tr>
   </thead>
@@ -77,75 +80,112 @@ $h = date("H");
 
 $jourtimestamp = strtotime($jour);
 
-
+//affichage de la heure actuel
 
 echo "$h h";
 
+//recuperation des données
+$da = date('Y-m-d');
+$dda = $da.' '.'08:00:00';
+$sda = $da.' '.'19:00:00';
 $popey = $jourtimestamp;
 $jourr = gmdate($popey);
-$reqtitrea = "SELECT * FROM  `reservations` where tempsegonde=$popey ;";
+//$reqtitrea = "SELECT * FROM  `reservations` where debut=";
+//RAJOUTER UNE VARIABLE DATE DU JOUR ET UNE AUTRE +24H
+$datepourdebut = date("Y-m-d h:i:s");
+
+//aujourdhuit
+$reqtitrea = ("SELECT * FROM reservations WHERE debut BETWEEN  '$dda' AND '$sda'");
   $req_jointe_bdda = mysqli_query($connexion,$reqtitrea);
-    $una = mysqli_fetch_assoc($req_jointe_bdda);
+    $una = mysqli_fetch_ALL($req_jointe_bdda,MYSQLI_ASSOC);
+$a = count($una);
 
-
-      echo "<tr><td>".$jour."</td><td>".$una['titre']."</td><td>".$una['debut']."</td><td>".$una['fin']."</td><td>".$data."</td></tr>";
-
+//preparation pour jour suivent
       $demainjour = $jourtimestamp + 86400 ;
        $demain = gmdate("l", $demainjour);
-       $demaind = gmdate("d-m-Y",$demainjour);
-      
-  $reqtitre = "SELECT * FROM  `reservations` where tempsegonde=$demainjour ;";
-  $req_jointe_bdd = mysqli_query($connexion,$reqtitre);
-    $un = mysqli_fetch_assoc($req_jointe_bdd);
+    
+       $demaind = gmdate("Y-m-d",$demainjour);
+       $jour1 = $demaind.' '.'08:00:00';
+       $jour1b = $demaind.' '.'19:00:00';
+echo "<tr><td>".$jour."</td>";
+foreach ($una as $key ) {
+ 
+  //     $i = 0;
+  //     while ( $i <= $a) 
+    //   {
+        
+        echo  "<tr><td>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
+   //      $i = $i + 1 ;
+    //   }
   
-   
-       echo "<tr><td>$demain</td><td>".$un['titre']."</td><td>".$un['debut']."</td><td>".$un['fin']."</td><td>".$demaind."</td></tr>";
-      
+                       }  
 
-
-       $pd = $demainjour + 86400 ;
+  //jour1    
+  $reqtitre = "SELECT * FROM  `reservations` where debut BETWEEN '$jour1' AND 'jour1b' ;";
+  $req_jointe_bdd = mysqli_query($connexion,$reqtitre);
+    $un = mysqli_fetch_ALL($req_jointe_bdd);
+    $pd = $demainjour + 86400 ;
+         $data1 = date("d-m-Y", strtotime("+1 days"));
+         var_dump($data1);
+      // $data1 = $data = date("d-m-Y");
        $jour2 = gmdate("l",$pd);
+       $jourr2 = gmdate("Y-m-d",$pd);
+       $day2 = $jourr2.' '.'08:00:00';
+       $day2b = $jourr.' '.'19:00:00';
+       echo "<tr><td>".$demain."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data1."</td></tr>";
+foreach ($un as $ke ) {  
+       echo "<tr><td>   </td><td>".$ke['titre']."</td><td>".$ke['debut']."</td><td>".$ke['fin']."</td><td>".$data1."</td></tr>";     
+                         }
 
-
-       echo "<tr><td>$jour2</td></tr>";
-
-       $pa = $pd + 86400 ;
+//jour2
+ $reqtitreb = "SELECT * FROM  `reservations` where debut BETWEEN '$day2' AND '$day2b' ;";
+  $req_jointe_bddv = mysqli_query($connexion,$reqtitreb); 
+    $unb = mysqli_fetch_ALL($req_jointe_bddv);
+      $pa = $pd + 86400 ;
+      $data2 = date("d-m-Y", strtotime("+2 days"));
        $jour3 = gmdate("l",$pa);
-       echo "<tr><td>$jour3</td></tr>";
+       $jour33 =gmdate("Y-m-d",$pa);
+       $day3 = $jour33.' '.'08:00:00';
+       $day3b = $jour33.' '.'19:00:00';
+       echo "<tr><td>".$jour2."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data2."</td></tr>";
+foreach ($unb as $ky ) {
+       echo "<tr><td>   </td><td>".$ky['titre']."</td><td>".$ky['debut']."</td><td>".$ky['fin']."</td><td>".$data2."</td></tr>";
+                        }
+//jour3 
+       $requettejour3 ="SELECT * FROM `reservations` where debut BETWEEN '$day3' AND '$day3b' ;";
+        $req_jointe_bdde = mysqli_query($connexion,$requettejour3);
+        $unc = mysqli_fetch_ALL($req_jointe_bdde);
+        $paa = $pa +86400 ;
+        $data3 = date("d-m-Y", strtotime("+2 days"));
+        $jour4 = gmdate("l",$paa);
+        $jour44 = gmdate("Y-m-d",$paa);
+        $day4 = $jour4.' '.'08:00:00';
+        $day4b = $jour44.' '.'19:00:00';
+        echo "<tr><td>".$jour3."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data3."</td></tr>";
+foreach ($unc as $keeb ) {
+       
+       echo "<tr><td>".$jour3."</td><td>".$keeb[1]."</td><td>".$keeb[3]."</td><td>".$keeb[4]."</td><td>".$data3."</td></tr>";
+                              }              
+  //jour4
+                        
+  //     $pe = $pa + 86400 ;
+   //    $jour4 = gmdate("l",$pe);
+   //    echo "<tr><td>$jour4</td></tr>";
 
-       $pe = $pa + 86400 ;
-       $jour4 = gmdate("l",$pe);
-       echo "<tr><td>$jour4</td></tr>";
+   //    $pu = $pe + 86400 ;
+   //    $jour5 = gmdate("l",$pu);
+    //   echo "<tr><td>$jour5</td></tr>";
 
-       $pu = $pe + 86400 ;
-       $jour5 = gmdate("l",$pu);
-       echo "<tr><td>$jour5</td></tr>";
+    //   $po = $pu + 86400 ;
+    //   $jour6 = gmdate("l",$po);
+     //  echo "<tr><td>$jour6</td></tr>";
 
-       $po = $pu + 86400 ;
-       $jour6 = gmdate("l",$po);
-       echo "<tr><td>$jour6</td></tr>";
-
-       $pi = $po + 86400 ;
-       $jour7 = gmdate("l",$pi);
-       echo  "<tr><td>$jour7</td></tr>";
+     //  $pi = $po + 86400 ;
+     //  $jour7 = gmdate("l",$pi);
+      // echo  "<tr><td>$jour7</td></tr>";
 
 
-    //    $i++;
 
-
-//}
-//while ( $i <= 7)
-  //   {
-      
-
-    //  $demainjour = $jourtimestamp +  86400;
-    //   $demain = gmdate("l", $demainjour);
-     //  echo "$demain";
-      
-     //  $i++;
-     
-     //}
-//}
 
 ?>
 </table>

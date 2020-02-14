@@ -149,6 +149,9 @@ if (isset($_POST['submit']))
                     $testheure = strtotime($_POST['heuredebut']);
 
                     $datenew = $_POST['date'];
+               
+               
+                    
                     $datetime = $datenew." ".$heuredebut;
                      $datetimefin = $datenew." ".$heurefin;
                     $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
@@ -164,7 +167,7 @@ if (isset($_POST['submit']))
                       $heure = $degrdarcf - $degrdarcd;
                       //date et temp time stamp
                       $datetimest = strtotime($datetime);
-                      var_dump($datetimest);
+                
                        
 
                       //if heure pleine
@@ -196,16 +199,15 @@ if (isset($_POST['submit']))
                                          {
                                          
                                          $datex = $datenew;
-                                        var_dump($datex);
+                                        
                                         $datex = strtotime($datex);
                                    
                              $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur,tempsegonde)
                              VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$datex\");";                
-                             $inser= mysqli_query($connexion, $requetinser);
+                            $inser= mysqli_query($connexion, $requetinser);
                     
-                             // header("location:reservation.php?$titreresa?id=$idresa");
-                                  var_dump($requetinser);
-                                  var_dump($inser);
+                              header("location:reservation.php?$titreresa?id=$idresa");
+                                 
                                    }
                                    else
                                    {
