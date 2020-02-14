@@ -167,7 +167,55 @@ foreach ($unc as $keeb ) {
        echo "<tr><td>".$jour3."</td><td>".$keeb[1]."</td><td>".$keeb[3]."</td><td>".$keeb[4]."</td><td>".$data3."</td></tr>";
                               }              
   //jour4
-                        
+           $requettejour4 ="SELECT * FROM `reservations` where debut BETWEEN '$day4' AND '$day4b' ;";
+        $req_jointe_bddea = mysqli_query($connexion,$requettejour4);
+        $unc1 = mysqli_fetch_ALL($req_jointe_bddea); 
+        $paa1 = $paa +86400 ;
+        $data4 = date("d-m-Y", strtotime("+3 days"));
+        $jour5 = gmdate("l",$paa1);
+        $jour55 = gmdate("Y-m-d",$paa1);
+        $day5 = $jour5.' '.'08:00:00';
+        $day5b = $jour55.' '.'19:00:00';
+        echo "<tr><td>".$jour4."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data4."</td></tr>";
+foreach ($unc1 as $keeb1 ) {
+       
+       echo "<tr><td>".$jour4."</td><td>".$keeb1[1]."</td><td>".$keeb1[3]."</td><td>".$keeb1[4]."</td><td>".$data4."</td></tr>";
+                              }              
+
+//jour5
+
+        $requettejour5 ="SELECT * FROM `reservations` where debut BETWEEN '$day5' AND '$day5b' ;";
+        $req_jointe_bddea1 = mysqli_query($connexion,$requettejour5);
+        $unc2 = mysqli_fetch_ALL($req_jointe_bdde1);
+        $paa2 = $paa1 +86400 ;
+        $data5 = date("d-m-Y", strtotime("+4 days"));
+        $jour6 = gmdate("l",$paa2);
+        $jour66 = gmdate("Y-m-d",$paa2);
+        $day6 = $jour6.' '.'08:00:00';
+        $day6b = $jour66.' '.'19:00:00';
+        echo "<tr><td>".$jour5."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data5."</td></tr>";
+foreach ($unc2 as $keeb2 ) {
+       
+       echo "<tr><td>".$jour5."</td><td>".$keeb2[1]."</td><td>".$keeb2[3]."</td><td>".$keeb2[4]."</td><td>".$data5."</td></tr>";
+                              } 
+
+//jour6
+
+        $requettejour5 ="SELECT * FROM `reservations` where debut BETWEEN '$day6' AND '$day6b' ;";
+        $req_jointe_bddea2 = mysqli_query($connexion,$requettejour6);
+        $unc2 = mysqli_fetch_ALL($req_jointe_bdde2);
+        $paa3 = $paa2 +86400 ;
+        $data6 = date("d-m-Y", strtotime("+5 days"));
+        $jour7 = gmdate("l",$paa3);
+        $jour77 = gmdate("Y-m-d",$paa3);
+        $day7 = $jour7.' '.'08:00:00';
+        $day7b = $jour77.' '.'19:00:00';
+        echo "<tr><td>".$jour6."</td><td>".' '."</td><td>".' '."</td><td>".' '."</td><td>".$data7."</td></tr>";
+foreach ($unc3 as $keeb3 ) {
+       
+       echo "<tr><td>".$jour6."</td><td>".$keeb3[1]."</td><td>".$keeb3[3]."</td><td>".$keeb3[4]."</td><td>".$data6."</td></tr>";
+                              } 
+
   //     $pe = $pa + 86400 ;
    //    $jour4 = gmdate("l",$pe);
    //    echo "<tr><td>$jour4</td></tr>";
