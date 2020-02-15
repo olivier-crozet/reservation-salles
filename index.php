@@ -76,7 +76,7 @@ Cette discipline est inventée par l'Argentin Juan Carlos Ceriani Gravier, membr
                <a class="liens" href="planning.php"><img class="image-inscription" src="image/planning.jpg"><div class="infobulle1">voir le planning !</div></a>
          </div>
          <div class="div-logo">
-               <a class="liens"  href="reservation.php"><img  class="image-inscription" src="image/reservation.png"> <div class="infobulle1">reseverver votre terrain !</div></a>
+               <a class="liens"  href="reservation-form.php"><img  class="image-inscription" src="image/reservation.png"> <div class="infobulle1">reseverver votre terrain !</div></a>
             
 
 
