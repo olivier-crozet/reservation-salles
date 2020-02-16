@@ -48,7 +48,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
                          ?><!--
               --><li><a class="ah"  href="planning.php">voir le planning</a></li>
 
-                         <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
+                         <li><a class="ah"  href="mailto:olivier.crozet@gmail.com">contact</a></li>
             <?php
                     if  (isset($_SESSION['id'])) 
                     	{ 

@@ -45,7 +45,7 @@ $erreur="<p class='codeerreur'>vous n'etes pas connecté !";
                          ?>
                <li><a class="ah"  href="planning.php">voir le planning</a>
 
-                          <li><a class="ah"  href="mailinto:olivier.crozet@gmail.com">contact</a></li>
+                          <li><a class="ah"  href="mailto:olivier.crozet@gmail.com">contact</a></li>
               <?php
                     if  (isset($_SESSION['id'])) 
                     	{ 
@@ -118,7 +118,7 @@ if (isset($_POST['envoiconnexion']))
    //FORMULAIRE CONNEXION
 ?>
   <form class="form-connexion" method="POST" action="connexion.php">
-         <table>
+         <table class="tableconnexionprofil">
            <tr>
             <td>
               <label class="login"  for="login">login :</label>
