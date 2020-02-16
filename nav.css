@@ -4,7 +4,12 @@ header
   
   color :white;
 }
+body
+{
+  margin: 0;
+}  
   /*NAV*/
+
 a
 {
   text-decoration: none;

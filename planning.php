@@ -9,10 +9,7 @@ $connexion=mysqli_connect("localhost","root","","reservationsalles");
     unset ($_SESSION['login']);	
 $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
-//if (!isset($_SESSION['login'])) 
-  //  {
-    //  header ("location: connexion.php") ;
-    //}
+
 ?>
 <!
 <html>
@@ -110,13 +107,13 @@ $a = count($una);
        $_SESSION['cl'] = "class = psedo-affichage";
        if ($a <= 0) 
        {
-          echo "<tr ><td>".$jour."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data."</td></tr>";
+          echo "<tr ><td>".$jour."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data."</td></tr>";
        }
        else
        {
-        echo "<tr><td>".$jour."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data."</td></tr>";
+        echo "<tr><td>".$jour."</td><td>"."<a href = $red\"reservation-form.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data."</td></tr>";
 foreach ($una as $key  ) {  
-        echo  "<tr><td><a href = $red\"reservation.php\">reserver en cliquant ici !</a>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
+        echo  "<tr><td><a href = $pink\"reservation.php\">reserver en cliquant ici !</a>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
                        }  
        }
   //jour1    
@@ -133,11 +130,11 @@ foreach ($una as $key  ) {
        $day2b = $jourr2.' '.'19:00:00';
        if ($a1 <= 0)
        {
-       echo "<tr ><td>".$demain."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data1."</td></tr>";
+       echo "<tr ><td>".$demain."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data1."</td></tr>";
       }
       else
       {     
-         echo "<tr><td>".$demain."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data1."</td></tr>";
+         echo "<tr><td>".$demain."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data1."</td></tr>";
 foreach ($un as $ke ) {  
        echo "<tr><td></td><td>".$ke[1]."</td><td>".$ke[3]."</td><td>".$ke[4]."</td><td>".$data1."</td></tr>";     
                       }
@@ -154,12 +151,12 @@ foreach ($un as $ke ) {
        $day3 = $jour33.' '.'08:00:00';
        $day3b = $jour33.' '.'19:00:00';
        if ($a2 <= 0) {
-         echo "<tr><td>".$jour2."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data2."</td></tr>";
+         echo "<tr><td>".$jour2."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data2."</td></tr>";
        }
        else
        {
-         echo "<tr><td>".$jour2."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data2."</td></tr>";
-        foreach ($unb as $ky ) {
+         echo "<tr><td>".$jour2."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data2."</td></tr>";
+ foreach ($unb as $ky ) {
 
        echo "<tr><td>  </td><td>".$ky[1]."</td><td>".$ky[3]."</td><td>".$ky[4]."</td><td>".$data2."</td></tr>";
                         }
@@ -178,11 +175,11 @@ foreach ($un as $ke ) {
         $day4b = $jour44.' '.'19:00:00';
         if ($a3 <= 0)
          {
-           echo "<tr><td>".$jour3."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data3."</td></tr>";
+           echo "<tr><td>".$jour3."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data3."</td></tr>";
         }
         else
         {
-         echo "<tr><td>".$jour3."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data3."</td></tr>";
+         echo "<tr><td>".$jour3."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data3."</td></tr>";
 
           foreach ($unc as $keeb ) {
        
@@ -204,11 +201,11 @@ foreach ($un as $ke ) {
         $day5b = $jour55.' '.'19:00:00';
         if ($a4 <= 0)
          {
-         echo "<tr><td>".$jour4."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data4."</td></tr>";
+         echo "<tr><td>".$jour4."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data4."</td></tr>";
         }
         else
         {
-        echo "<tr><td>".$jour4."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data4."</td></tr>";
+        echo "<tr><td>".$jour4."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data4."</td></tr>";
 
           foreach ($unc1 as $keeb1 ) {
        
@@ -232,11 +229,11 @@ foreach ($un as $ke ) {
         $day6b = $jour66.' '.'19:00:00';
         if ($a5 <= 0)
          {
-           echo "<tr><td>".$jour5."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data5."</td></tr>";
+           echo "<tr><td>".$jour5."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data5."</td></tr>";
         }
        else
        {
-        echo "<tr><td>".$jour5."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data5."</td></tr>";
+        echo "<tr><td>".$jour5."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data5."</td></tr>";
         foreach ($unc2 as $keeb2 ) {
        
        echo "<tr class=\"lignef\"><td>  </td><td>".$keeb2[1]."</td><td>".$keeb2[3]."</td><td>".$keeb2[4]."</td><td>".$data5."</td></tr>";
@@ -258,22 +255,18 @@ foreach ($un as $ke ) {
         $day7b = $jour77.' '.'19:00:00';
         if ($a6 <= 0)
          {
-           echo "<tr><td>".$jour6."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data6."</td></tr>";
+           echo "<tr><td>".$jour6."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>".' '."</td><td>".' '."</td><td>".$data6."</td></tr>";
         }
        else
        {
-         echo "<tr><td>".$jour6."</td><td>"."<a href = \"inscription.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data6."</td></tr>";
+         echo "<tr><td>".$jour6."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a>"."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data6."</td></tr>";
         foreach ($unc3 as $keeb3 ) {
        
        echo "<tr ><td>  </td><td>".$keeb3[1]."</td><td>".$keeb3[3]."</td><td>".$keeb3[4]."</td><td>".$data6."</td></tr>";
                               }
        }
  
-//style
-if (isset($red))
-     {
-      echo "<strong>".'<font size= "5px" color="red">'.$erreur.'</font>'."</strong>";
-    }
+
 ?>
 </table>
 </div>
