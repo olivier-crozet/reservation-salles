@@ -29,12 +29,16 @@ main
     overflow: overlay;	
 }
 
-
+table
+{
+    border: solid 2px white;
+}
 
 tr
 {
     height: 60PX;
      border: solid white 2px;
+     background-color: #a7a7a7c2;
 }
 a
 {

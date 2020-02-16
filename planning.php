@@ -171,7 +171,7 @@ foreach ($un as $ke ) {
         $unc = mysqli_fetch_ALL($req_jointe_bdde);
         $a3 = count($unc);
         $paa = $pa +86400 ;
-        $data3 = date("d-m-Y", strtotime("+2 days"));
+        $data3 = date("d-m-Y", strtotime("+3 days"));
         $jour4 = gmdate("l",$paa);
         $jour44 = gmdate("Y-m-d",$paa);
         $day4 = $jour44.' '.'08:00:00';
@@ -197,7 +197,7 @@ foreach ($un as $ke ) {
         $unc1 = mysqli_fetch_ALL($req_jointe_bddea); 
         $a4 = count($unc1);
         $paa1 = $paa +86400 ;
-        $data4 = date("d-m-Y", strtotime("+3 days"));
+        $data4 = date("d-m-Y", strtotime("+4 days"));
         $jour5 = gmdate("l",$paa1);
         $jour55 = gmdate("Y-m-d",$paa1);
         $day5 = $jour55.' '.'08:00:00';
@@ -225,7 +225,7 @@ foreach ($un as $ke ) {
         $unc2 = mysqli_fetch_ALL($req_jointe_bddea1);
         $a5 = count($unc2);
         $paa2 = $paa1 +86400 ;
-        $data5 = date("d-m-Y", strtotime("+4 days"));
+        $data5 = date("d-m-Y", strtotime("+5 days"));
         $jour6 = gmdate("l",$paa2);
         $jour66 = gmdate("Y-m-d",$paa2);
         $day6 = $jour66.' '.'08:00:00';
@@ -251,7 +251,7 @@ foreach ($un as $ke ) {
         $unc3 = mysqli_fetch_ALL($req_jointe_bddea2);
         $a6 = count($unc3);
         $paa3 = $paa2 +86400 ;
-        $data6 = date("d-m-Y", strtotime("+5 days"));
+        $data6 = date("d-m-Y", strtotime("+6 days"));
         $jour7 = gmdate("l",$paa3);
         $jour77 = gmdate("Y-m-d",$paa3);
         $day7 = $jour77.' '.'08:00:00';

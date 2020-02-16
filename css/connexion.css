@@ -16,7 +16,48 @@ main
 	width: 34%;
     margin-bottom: 5%;
 }
-.tableconnexionprofil  {
+.envoi-connexion
+{
+    width: 40%;
+    border:none;
+    padding:6px 0 6px 0;
+    border-radius:8px;
+    background:#4caf50;
+    font:bold 13px Arial;
+    color:#fff;
+}
+.envoi-connexion:hover
+{
+       width: 40%;
+    border:none;
+    padding:6px 0 6px 0;
+    border-radius:8px;
+    background:#ff0000c2;
+    font:bold 13px Arial;
+    color:#fff; 
+}
+.envoi-deconnexion
+{
+    width: 40%;
+      border:none;
+    padding:6px 0 6px 0;
+    border-radius:8px;
+    background:#4caf50;
+    font:bold 13px Arial;
+    color:#fff;  
+}
+.envoi-deconnexion:hover
+{
+       width: 40%;
+    border:none;
+    padding:6px 0 6px 0;
+    border-radius:8px;
+    background:#ff0000c2;
+    font:bold 13px Arial;
+    color:#fff;  
+}
+.tableconnexionprofil 
+ {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
