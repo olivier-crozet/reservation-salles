@@ -111,9 +111,9 @@ $a = count($una);
        }
        else
        {
-        echo "<tr><td>".$jour."</td><td>"."<a href = $red\"reservation-form.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data."</td></tr>";
+        echo "<tr><td>".$jour."</td><td>"."<a href = \"reservation-form.php\">reserver en cliquant ici !</a> "."</td><td>"."<a href = \"reservation.php\">voir toutes vos reservation ici !</a> "."</td><td>".' '."</td><td>".$data."</td></tr>";
 foreach ($una as $key  ) {  
-        echo  "<tr><td><a href = $pink\"reservation.php\">reserver en cliquant ici !</a>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
+        echo  "<tr><td><a href = \"reservation.php\">reserver en cliquant ici !</a>  </td><td>".$key['titre']."</td><td>".$key['debut']."</td><td>".$key['fin']."</td><td>".$data."</td></tr>";
                        }  
        }
   //jour1    
