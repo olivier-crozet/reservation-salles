@@ -108,14 +108,14 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
               <input type="time" name="heurfin" placeholder="" value="">
             </td>
           </tr>
-          <tr>
-               <td>
+      <!--    <tr>
+             <td>
                 <label  for="password2">confirmer votre mot de passe :</label>
               </td>
               <td>
                 <input type="password" name="password2" placeholder="ecrire votre mot de passe">
               </td>
-          </tr>
+          </tr> -->
           
         </table>
       
@@ -135,16 +135,17 @@ if (isset($_POST['submit']))
       $titreresa=htmlspecialchars($_POST['titre']);
       $description=htmlspecialchars($_POST['description']);
       $idresa=($_SESSION['id']);
-      $password2= password_hash($_POST["password2"], PASSWORD_DEFAULT,array('cost'=> 12));
+      //$password2= password_hash($_POST["password2"], PASSWORD_DEFAULT,array('cost'=> 12));
       
 
          $requete=("SELECT password FROM utilisateurs  where id = '$idresa' ");
             $sql=mysqli_query($connexion,$requete);
             $retour=mysqli_fetch_array($sql);
 
-             if (password_verify($_POST['password2'], $retour['password']))
-                 { 
+           //  if (password_verify($_POST['password2'], $retour['password']))
+               //  { 
                     $heuredebut=$_POST['heuredebut'];
+                    var_dump($heuredebut);
                     $heurefin=$_POST['heurfin'];
                     $testheure = strtotime($_POST['heuredebut']);
 
@@ -154,16 +155,17 @@ if (isset($_POST['submit']))
                     
                     $datetime = $datenew." ".$heuredebut;
                      $datetimefin = $datenew." ".$heurefin;
-                    $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
-                     $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
+                  //  $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
+                    // $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
                     //
-                      if ($heuredebut >= "07h59" && $heuredebut < "19:00" && $heurefin > "09:00" && $heurefin <= "19:00"  ) 
+                      if ($heuredebut >= "08:00"  && $heuredebut <= "19:00" && $heurefin == "09:00" && $heurefin <= "19:00"  ) 
                      {
                       //preparation heure 
-                      $degrdarcd = strtotime($heuredebut);
-                      
-                      $degrdarcf = strtotime($heurefin);   
-                       
+                      $degrdarc = strtotime($heuredebut);
+                      $degrdarcd = $degrdarc - 3600 ;
+                      $degrdarcff = strtotime($heurefin);
+                      $degrdarcf = $degrdarcff -3600 ;   
+                       var_dump($degrdarcd);
                       $heure = $degrdarcf - $degrdarcd;
                       //date et temp time stamp
                       $datetimest = strtotime($datetime);
@@ -172,7 +174,7 @@ if (isset($_POST['submit']))
 
                       //if heure pleine
 
-                         if ($heure == 0 or $heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
+                         if ( $heure == 0 or $heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
                           //poissible aussi
                           //if( $heure %3600 ==0)  DIVISIBLE PAR 3600
 
@@ -206,7 +208,7 @@ if (isset($_POST['submit']))
                              VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$datex\");";                
                             $inser= mysqli_query($connexion, $requetinser);
                     
-                              header("location:reservation.php?$titreresa?id=$idresa");
+                           //   header("location:reservation.php?$titreresa?id=$idresa");
                                  
                                    }
                                    else
@@ -229,11 +231,11 @@ if (isset($_POST['submit']))
                    {
                     echo "Heure d'ouverture de 8H à 19H !";
                    }
-                 }
-                else
-              {
-                echo"Le mot de passe ne correspond pas !";
-              }
+                // }
+             //   else
+              //{
+                //echo"Le mot de passe ne correspond pas !";
+              //}
          }
 }
 ?>

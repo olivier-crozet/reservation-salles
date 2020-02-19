@@ -1,17 +1,22 @@
 <?php
 session_start();
 
-$_SESSION['login'];
+if(!isset($_SESSION['login']))
+{
+    header("location: index.php");
+}
+
+
 $log=$_SESSION['login'];
 $id=$_SESSION['id'];
 
 
                //si on clique sur la connexion
- if (!empty($_POST['formdeconexion']) OR !empty($_POST['deconection'])) 
-    {   	
+ if (!empty($_POST['deconection'])) 
+   {   	
     unset ( $_SESSION ['id'] );
     unset ($_SESSION['login']);	
-    header("location: index.php");
+  //  header("location: index.php");
 $erreur="<p> class='codeerreur'>vous n'etes pas connecté</p> !";
     }
 ?>
@@ -46,15 +51,16 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté</p> !";
                          echo "<li><a class=\"ah\"  href=\"profil.php\">profil</a></li>";
                          echo "<li><a class=\"ah\"  href=\"reservation-form.php\">réservation</a></li>";
                          }
-                         ?>
+              ?>
                <li><a class="ah"  href="planning.php">voir le planning</a>                        
                     
                <li><a class="ah"  href="mailto:olivier.crozet@gmail.com">contact</a></li>
                 <?php
                     if  (isset($_SESSION['id'])) 
                       { 
-                        echo '<li>'.'<form  method="POST" action="">'.'<input  class="deco" type="submit" name="deconection" value="se deconnecté">'.'</li>';
-                        //echo  '<li>'.'<a class="ah"  href= "connexion.php">'."connection".'</a>'.'</li>';
+                        ?>
+                        <li><form  method="POST" action=""><input  class="deco" type="submit" name="deconection" value="se deconnecté"></form></li>
+                        <?php
                         }
                         
                       ?>
@@ -85,8 +91,8 @@ echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre log
    
           //TABLEAU FORM
 ?>
-<form class="form" method="POST" action="">
- <table class="tablinscri">
+<form class="form" method="POST">
+  <table class="tablinscri">
           <tr>
             <td>
               <label  for="login">modifier le login :</label>
@@ -197,6 +203,7 @@ echo"<h1 class='tritre2'>"."vous pouvez modifier votre mot de passe et votre log
    </div>
   </div>
  </section>
+
 </footer>
 </body>
 </html>
