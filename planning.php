@@ -51,7 +51,6 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
                         }
                       ?>                     
           </ul>
-
        </nav>
        <main>
 
@@ -61,87 +60,129 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
           <h1>planning !<h1>
         </header>
        
+<?php 
 
+//le lundi1 au soleil
+$monda = strtotime('Monday');
+$monday1 = $monda + 28800;
+var_dump($monday1);
+$reqtitrea = ("SELECT * FROM reservations WHERE tempsegonde = '$monday1' ");
+$req_jointe_bdda = mysqli_query($connexion,$reqtitrea);
+    $una = mysqli_num_rows($req_jointe_bdda);
+
+//lundi 09H 10H
+$monda2 = strtotime('Monday');
+$monday2 = $monda2 + 28800+3600;
+var_dump($monday2);
+$reqtitrea2 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday2' ");
+$req_jointe_bdda2 = mysqli_query($connexion,$reqtitrea2);
+    $una2 = mysqli_num_rows($req_jointe_bdda2);
+
+//lundi 10H 11H
+
+$monda3 = strtotime('Monday');
+$monday3 = $monda3 + 28800+7200;
+$reqtitrea3 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday3' ");
+$req_jointe_bdda3 = mysqli_query($connexion,$reqtitrea3);
+    $una3 = mysqli_num_rows($req_jointe_bdda3);
+   
+//lundi 11H 12H
+
+$monda4 = strtotime('Monday');
+$monday4 = $monda4 + 28800+10800;
+$reqtitrea4 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday4' ");
+$req_jointe_bdda4 = mysqli_query($connexion,$reqtitrea4);
+    $una4 = mysqli_num_rows($req_jointe_bdda4);
+
+//lundi 12H 13H
+
+$monda5 = strtotime('Monday');
+$monday5 = $monda5 + 28800+14400;
+$reqtitrea5 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday5' ");
+$req_jointe_bdda5 = mysqli_query($connexion,$reqtitrea5);
+    $una5 = mysqli_num_rows($req_jointe_bdda5);
+
+//lundi 13H 14H
+
+$monda6 = strtotime('Monday');
+$monday6 = $monda6 + 28800+18000;
+$reqtitrea6 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday6' ");
+$req_jointe_bdda6 = mysqli_query($connexion,$reqtitrea6);
+    $una6 = mysqli_num_rows($req_jointe_bdda6);
+
+//lundi 14H 15H
+
+$monda7 = strtotime('Monday');
+$monday7 = $monda7 + 28800+21600;
+$reqtitrea7 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday7' ");
+$req_jointe_bdda7 = mysqli_query($connexion,$reqtitrea7);
+    $una7 = mysqli_num_rows($req_jointe_bdda7);
+
+//lundi 16H 17H
+
+$monda8 = strtotime('Monday');
+$monday8 = $monda8 + 28800+25200;
+$reqtitrea8 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday8' ");
+$req_jointe_bdda8 = mysqli_query($connexion,$reqtitrea8);
+    $una8 = mysqli_num_rows($req_jointe_bdda8);
+
+//lundi 17H 18H
+
+$monda9 = strtotime('Monday');
+$monday9 = $monda9 + 28800+28800;
+$reqtitrea9 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday9' ");
+$req_jointe_bdda9 = mysqli_query($connexion,$reqtitrea9);
+    $una9 = mysqli_num_rows($req_jointe_bdda9);
+
+//lundi 17H 18H 
+
+$monda10 = strtotime('Monday');
+$monday10 = $monda10 + 28800+32400;
+$reqtitrea10 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday10' ");
+$req_jointe_bdda10 = mysqli_query($connexion,$reqtitrea10);
+    $una10 = mysqli_num_rows($req_jointe_bdda10);
+
+ ?>
         <table>
            <thead>
+            <tr>
+              <td></td><td>lundi</td><td>mardi</td><td>mecredi</td><td>jeudi</td><td>vendredi</td>
+            </tr>
+           </thead>
              <tr>
-               <td>lundi</td><td><a href="reservation-form.php>"><?php
-               $lundi = strtotime('monday');
-               var_dump($lundi);
-               $data = date("d-m-Y");
-               $jour = date('l');
-               $jourtimestamp = strtotime($jour);
-               $da = date('Y-m-d');
-               $dda = $da.' '.'08:00:00';
-               $sda = $da.' '.'19:00:00';
-
-               $reqtitrea = ("SELECT * FROM reservations WHERE debut BETWEEN  '$dda' AND '$sda'");
-               $req_jointe_bdda = mysqli_query($connexion,$reqtitrea);
-               $una = mysqli_fetch_ALL($req_jointe_bdda,MYSQLI_ASSOC);
-               $a = count($una);
-//preparation pour jour suivent
-               $demainjour = $jourtimestamp + 86400 ;
-               $demain = gmdate("l", $demainjour);
-    
-               $demaind = gmdate("Y-m-d",$demainjour);
-               $jour1 = $demaind.' '.'08:00:00';
-               $jour1b = $demaind.' '.'19:00:00';
-
-               if ($a <= 0) 
-               {
-                echo "<a href = \"reservation-form.php\">reserver en cliquant ici !</a>";
-              }
-              else
-              {
-              
-        foreach ($una as $key  ) {  
-                  echo  $key['titre'];
-                       }  
-       }
-       ?></td></a><td>
-         <?php
-          if ($a <= 0) 
-               {
-                echo "<a href = \"reservation-form.php\">reserver en cliquant ici !</a>";
-              }
-              else
-              {
-              
-        foreach ($una as $key  ) {  
-                  echo  $key['debut'];
-                       }
-                       }  
-         ?>
-       </td><td>
-       <?php
-        if ($a <= 0) 
-               {
-                echo "<a href = \"reservation-form.php\">reserver en cliquant ici !</a>";
-              }
-              else
-              {
-              
-        foreach ($una as $key  ) {  
-                  echo  $key['fin'];
-                       }
-                       }  
-       ?>
-       </td>
-       <td>date</td>
+             <td>08h-09h</td><td><?php if ($una >= 1) { echo "<a href=reservation.php>"." deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td><td>frfrf</td>
              </tr>
              <tr>
-               <td>mardi</td>
-              </tr>
-              <tr>
-                <td>mecredi</td>
-              </tr>
-              <tr>
-                <td>jeudi</td>
-              </tr>
-              <tr>
-                <td>vendredi</td>
-              </tr>
-           </thead>
+             <td>09h-10h</td><td><?php if ($una2 >=1 ) { echo "<a href=reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>10h-11h</td><td><?php if ($una3 >=1 ) { echo "<a href=reservation.php>"." deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>11h-12h</td><td><?php if ($una4 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>12h-13h</td><td><?php if ($una5 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>13h-14h</td><td><?php if ($una6 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>14h-15h</td><td><?php if ($una7 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>15h-16h</td><td><?php if ($una8 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <td>16h-17h</td><td><?php if ($una9 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             <tr>
+             <td>17h-18h</td><td><?php if ($una10 >=1 ) { echo "<a href =reservation.php>"."deja reserver"."</a>"; } else {echo "<a href= reservation-form.php>"."reserver ce crenaux"."</a>";} ?></td>
+             </tr>
+             <tr>
+             <td>18h-19h</td>
+             </tr>
+          
+
+          
 
         </table>
 

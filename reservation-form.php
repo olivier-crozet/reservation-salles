@@ -145,27 +145,24 @@ if (isset($_POST['submit']))
            //  if (password_verify($_POST['password2'], $retour['password']))
                //  { 
                     $heuredebut=$_POST['heuredebut'];
-                    var_dump($heuredebut);
+                    var_dump($heuredebut);                   
                     $heurefin=$_POST['heurfin'];
+                    var_dump($heurefin);
                     $testheure = strtotime($_POST['heuredebut']);
-
-                    $datenew = $_POST['date'];
-               
-               
-                    
+                    $datenew = $_POST['date'];     
                     $datetime = $datenew." ".$heuredebut;
                      $datetimefin = $datenew." ".$heurefin;
                   //  $datetimef = date("Y-m-d H:i:s", strtotime($heurefin));
                     // $datetimed = date("Y-m-d H:i:s", strtotime($heuredebut)); 
                     //
-                      if ($heuredebut >= "08:00"  && $heuredebut <= "19:00" && $heurefin == "09:00" && $heurefin <= "19:00"  ) 
+                      if ($heuredebut >= "08:00"  && $heuredebut <= "19:00" && $heurefin >= "09:00" && $heurefin <= "19:00"  ) 
                      {
                       //preparation heure 
                       $degrdarc = strtotime($heuredebut);
                       $degrdarcd = $degrdarc - 3600 ;
                       $degrdarcff = strtotime($heurefin);
                       $degrdarcf = $degrdarcff -3600 ;   
-                       var_dump($degrdarcd);
+                      
                       $heure = $degrdarcf - $degrdarcd;
                       //date et temp time stamp
                       $datetimest = strtotime($datetime);
@@ -200,12 +197,18 @@ if (isset($_POST['submit']))
                                         if ( $retour == 0  && $retourstamp != $datetimest )
                                          {
                                          
-                                         $datex = $datenew;
-                                        
-                                        $datex = strtotime($datex);
+                                        $datexx = ($_POST['heuredebut']);
+                                        $datex = $datexx ;
+                                        $datexxx = $datenew.$datexx;
+                                      
+                                        $dato = strtotime($datexxx);
+                                        //$dati = $dato + 3600 ; 
+                                        var_dump($dato);
+                                       
+
                                    
                              $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur,tempsegonde)
-                             VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$datex\");";                
+                             VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$dato\");";                
                             $inser= mysqli_query($connexion, $requetinser);
                     
                            //   header("location:reservation.php?$titreresa?id=$idresa");
