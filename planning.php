@@ -47,7 +47,9 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
             <?php
                     if  (isset($_SESSION['id'])) 
                     	{ 
-                    		echo '<li>'.'<form  method="POST" action="">'.'<input  class="deco" type="submit" name="deconection" value="se deconnecté">'.'</li>';
+                    	 ?>
+                        <li><form  method="POST" action=""><input  class="deco" type="submit" name="deconection" value="se deconnecté"></form></li>
+                        <?php
                         }
                       ?>                     
           </ul>
