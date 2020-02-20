@@ -36,6 +36,9 @@ main
 table
 {
     border: solid 2px white;
+    margin: auto;
+    margin-bottom: 3%;
+    text-align: center;
 }
 
 tr
@@ -47,5 +50,35 @@ tr
 a
 {
     text-decoration: none; 
-    color: red; 
+    
+   /* COULEUR TABLEAU */ 
+}
+.red
+{
+    color: red;
+}
+
+.ble
+{
+    color: blue;
+}
+.lun
+{
+  background-color: #d8e3dd80;   
+}
+.mar
+{
+    background-color: #d3b5006e;
+}
+.mer
+{
+    background-color: #6ed7068f;
+}
+.jeu
+{
+    background-color: #0ab9c78f;
+}
+.ven
+{
+    background-color: #ff00008c;
 }

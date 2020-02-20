@@ -295,83 +295,179 @@ $jedi1 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi1' ");
 $jeud1 = mysqli_query($connexion,$jedi1);
     $jeu1 = mysqli_num_rows($jeud1);
 
+//JEUDI 09H 10H
+
+$jedit2 = strtotime('Thursday');
+$jeudi2 = $jedit2 + 28800 +3600;
+$jedi2 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi2' ");
+$jeud2 = mysqli_query($connexion,$jedi2);
+    $jeu2 = mysqli_num_rows($jeud2);
+
+//JEUDI 10H 11H
+
+$jedit3 = strtotime('Thursday');
+$jeudi3 = $jedit3 + 28800 +7200;
+$jedi3 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi3' ");
+$jeud3 = mysqli_query($connexion,$jedi3);
+    $jeu3 = mysqli_num_rows($jeud3);
+   
+//JEUDI 11H 12H
+
+$jedit4 = strtotime('Thursday');
+$jeudi4 = $jedit4 + 28800 +10800;
+$jedi4 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi4' ");
+$jeud4 = mysqli_query($connexion,$jedi4);
+    $jeu4 = mysqli_num_rows($jeud4);
+
+//JEUDI 12H 13H
+
+$jedit5 = strtotime('Thursday');
+$jeudi5 = $jedit5 + 28800 +14400;
+$jedi5 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi5' ");
+$jeud5 = mysqli_query($connexion,$jedi5);
+    $jeu5 = mysqli_num_rows($jeud5);
+
+//JEUDI 13H 14H
+
+$jedit6 = strtotime('Thursday');
+$jeudi6 = $jedit6 + 28800 +18000;
+$jedi6 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi6' ");
+$jeud6 = mysqli_query($connexion,$jedi6);
+    $jeu6 = mysqli_num_rows($jeud6);
+
+//JEUDI 14H 15H
+
+$jedit7 = strtotime('Thursday');
+$jeudi7 = $jedit7 + 28800 +21600;
+$jedi7 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi7' ");
+$jeud7 = mysqli_query($connexion,$jedi7);
+    $jeu7 = mysqli_num_rows($jeud7);
+
+//JEUDI 16H 17H
+
+$jedit8 = strtotime('Thursday');
+$jeudi8 = $jedit8 + 28800 +25200;
+$jedi8 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi8' ");
+$jeud8 = mysqli_query($connexion,$jedi8);
+    $jeu8 = mysqli_num_rows($jeud8);
+
+//JEUDI 17H 18H
+
+$jedit9 = strtotime('Thursday');
+$jeudi9 = $jedit9 + 28800 +28800;
+$jedi9 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi9' ");
+$jeud9 = mysqli_query($connexion,$jedi9);
+    $jeu9 = mysqli_num_rows($jeud9);
+
+//JEUDI 17H 18H 
+
+$jedit10 = strtotime('Thursday');
+$jeudi10 = $jedit10 + 28800 +32400;
+$jedi10 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi10' ");
+$jeud10 = mysqli_query($connexion,$jedi10);
+    $jeu10 = mysqli_num_rows($jeud10);
+
+// JEUDI 18H 19H
+
+$jedit11 = strtotime('Thursday');
+$jeudi11 = $jedit11 + 28800 +36000;
+$jedi11 = ("SELECT * FROM reservations WHERE tempsegonde = '$jeudi11' ");
+$jeud11 = mysqli_query($connexion,$jedi11);
+    $jeu11 = mysqli_num_rows($jeud11);
+
+
+
+
+////VENDREDI
+
+
+
+
+//le lundi1 au soleil
+$venerdi1 = strtotime('Friday');
+$vendredi1 = $venerdi1 + 28800;
+$vener1 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi1' ");
+$vene1 = mysqli_query($connexion,$vener1);
+    $ven1 = mysqli_num_rows($vene1);
+
 //lundi 09H 10H
-$monda2 = strtotime('Monday');
-$monday2 = $monda2 + 28800+3600;
-$reqtitrea2 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday2' ");
-$req_jointe_bdda2 = mysqli_query($connexion,$reqtitrea2);
-    $una2 = mysqli_num_rows($req_jointe_bdda2);
+$venerdi2 = strtotime('Friday');
+$vendredi2 = $venerdi2 + 28800 + 3600;
+$vener2 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi2' ");
+$vene2 = mysqli_query($connexion,$vener2);
+    $ven2 = mysqli_num_rows($vene2);
 
 //lundi 10H 11H
 
-$monda3 = strtotime('Monday');
-$monday3 = $monda3 + 28800+7200;
-$reqtitrea3 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday3' ");
-$req_jointe_bdda3 = mysqli_query($connexion,$reqtitrea3);
-    $una3 = mysqli_num_rows($req_jointe_bdda3);
+$venerdi3 = strtotime('Friday');
+$vendredi3 = $venerdi3 + 28800 +7200;
+$vener3 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi3' ");
+$vene3 = mysqli_query($connexion,$vener3);
+    $ven3 = mysqli_num_rows($vene3);
+
    
 //lundi 11H 12H
 
-$monda4 = strtotime('Monday');
-$monday4 = $monda4 + 28800+10800;
-$reqtitrea4 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday4' ");
-$req_jointe_bdda4 = mysqli_query($connexion,$reqtitrea4);
-    $una4 = mysqli_num_rows($req_jointe_bdda4);
+$venerdi4 = strtotime('Friday');
+$vendredi4 = $venerdi4 + 28800 +10800;
+$vener4 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi4' ");
+$vene4 = mysqli_query($connexion,$vener4);
+    $ven4 = mysqli_num_rows($vene4);
 
 //lundi 12H 13H
 
-$monda5 = strtotime('Monday');
-$monday5 = $monda5 + 28800+14400;
-$reqtitrea5 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday5' ");
-$req_jointe_bdda5 = mysqli_query($connexion,$reqtitrea5);
-    $una5 = mysqli_num_rows($req_jointe_bdda5);
+$venerdi5 = strtotime('Friday');
+$vendredi5 = $venerdi5 + 28800 +14400;
+$vener5 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi5' ");
+$vene5 = mysqli_query($connexion,$vener5);
+    $ven5 = mysqli_num_rows($vene5);
 
 //lundi 13H 14H
 
-$monda6 = strtotime('Monday');
-$monday6 = $monda6 + 28800+18000;
-$reqtitrea6 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday6' ");
-$req_jointe_bdda6 = mysqli_query($connexion,$reqtitrea6);
-    $una6 = mysqli_num_rows($req_jointe_bdda6);
+$venerdi6 = strtotime('Friday');
+$vendredi6 = $venerdi6 + 28800 +18000;
+$vener6 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi6' ");
+$vene6 = mysqli_query($connexion,$vener6);
+    $ven6 = mysqli_num_rows($vene6);
 
 //lundi 14H 15H
 
-$monda7 = strtotime('Monday');
-$monday7 = $monda7 + 28800+21600;
-$reqtitrea7 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday7' ");
-$req_jointe_bdda7 = mysqli_query($connexion,$reqtitrea7);
-    $una7 = mysqli_num_rows($req_jointe_bdda7);
+$venerdi7 = strtotime('Friday');
+$vendredi7 = $venerdi7 + 28800 + 21600;
+$vener7 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi7' ");
+$vene7 = mysqli_query($connexion,$vener7);
+    $ven7 = mysqli_num_rows($vene7);
 
 //lundi 16H 17H
 
-$monda8 = strtotime('Monday');
-$monday8 = $monda8 + 28800+25200;
-$reqtitrea8 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday8' ");
-$req_jointe_bdda8 = mysqli_query($connexion,$reqtitrea8);
-    $una8 = mysqli_num_rows($req_jointe_bdda8);
+$venerdi8 = strtotime('Friday');
+$vendredi8 = $venerdi8 + 28800 +25200;
+$vener8 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi8' ");
+$vene8 = mysqli_query($connexion,$vener8);
+    $ven8 = mysqli_num_rows($vene8);
 
 //lundi 17H 18H
 
-$monda9 = strtotime('Monday');
-$monday9 = $monda9 + 28800+28800;
-$reqtitrea9 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday9' ");
-$req_jointe_bdda9 = mysqli_query($connexion,$reqtitrea9);
-    $una9 = mysqli_num_rows($req_jointe_bdda9);
+$venerdi9 = strtotime('Friday');
+$vendredi9 = $venerdi9 + 28800 +28800;
+$vener9 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi9' ");
+$vene9 = mysqli_query($connexion,$vener9);
+    $ven9 = mysqli_num_rows($vene9);
 
 //lundi 17H 18H 
 
-$monda10 = strtotime('Monday');
-$monday10 = $monda10 + 28800+32400;
-$reqtitrea10 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday10' ");
-$req_jointe_bdda10 = mysqli_query($connexion,$reqtitrea10);
-    $una10 = mysqli_num_rows($req_jointe_bdda10);
+$venerdi10 = strtotime('Friday');
+$vendredi10 = $venerdi10 + 28800 +32400;
+$vener10 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi10' ");
+$vene10 = mysqli_query($connexion,$vener10);
+    $ven10 = mysqli_num_rows($vene10);
+
 
 // lundi 18H 19H
 
-$monda11 = strtotime('Monday');
-$monday11 = $monda11 + 28800+36000;
-$reqtitrea11 = ("SELECT * FROM reservations WHERE tempsegonde = '$monday11' ");
-$req_jointe_bdda11 = mysqli_query($connexion,$reqtitrea11);
-    $una11 = mysqli_num_rows($req_jointe_bdda11);
-
+$venerdi11 = strtotime('Friday');
+$vendredi11 = $venerdi11 + 28800 +36000;
+$vener11 = ("SELECT * FROM reservations WHERE tempsegonde = '$vendredi10' ");
+$vene11 = mysqli_query($connexion,$vener11);
+    $ven11 = mysqli_num_rows($vene11);
 ?>
