@@ -11,7 +11,8 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
     if (!isset($_SESSION['login'])) 
     {
-      header ("location: connexion.php") ;
+     // header ("location: connexion.php") ;
+      echo "tamere";
     }
 ?>
 <!
@@ -51,9 +52,12 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
                     if  (isset($_SESSION['id'])) 
                     	{ 
                     		 ?>
-                        <li><form  method="POST" action=""><input  class="deco" type="submit" name="deconection" value="se deconnecté"></form></li>
+                        <li><form  method="POST" action="">
+                          <input  class="deco" type="submit" name="deconection" value="se deconnecté">
+                        </form></li>
                         <?php
-                      ?>                     
+                    }        
+                    ?>          
           </ul>
 
        </nav>
@@ -64,7 +68,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
 
 
         <!--DEBUT TABLE-->
-<form class="form" method="_POST" action="reservationsalles.php" >
+<form class="form" method="POST" action="" >
         <table class="tablinscri">
           <tr>
             <td>
@@ -146,9 +150,8 @@ if (isset($_POST['submit']))
            //  if (password_verify($_POST['password2'], $retour['password']))
                //  { 
                     $heuredebut=$_POST['heuredebut'];
-                    var_dump($heuredebut);                   
+                        
                     $heurefin=$_POST['heurfin'];
-                    var_dump($heurefin);
                     $testheure = strtotime($_POST['heuredebut']);
                     $datenew = $_POST['date'];     
                     $datetime = $datenew." ".$heuredebut;
@@ -172,7 +175,7 @@ if (isset($_POST['submit']))
 
                       //if heure pleine
 
-                         if ( $heure == 0 or $heure == 3600 or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 ) 
+                         if ( /*$heure == 0 or */ $heure == 3600)  /* or $heure ==7200 or $heure == 10800 or $heure == 14400 or $heure ==18000 or $heure == 21600 or $heure == 25200 or $heure == 28800 or $heure == 32400 or $heure == 36000 or $heure == 39600 */ 
                           //poissible aussi
                           //if( $heure %3600 ==0)  DIVISIBLE PAR 3600
 
@@ -204,7 +207,7 @@ if (isset($_POST['submit']))
                                       
                                         $dato = strtotime($datexxx);
                                         //$dati = $dato + 3600 ; 
-                                        var_dump($dato);
+                                     
                                        
 
                                    
@@ -212,7 +215,7 @@ if (isset($_POST['submit']))
                              VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$dato\");";                
                             $inser= mysqli_query($connexion, $requetinser);
                     
-                           //   header("location:reservation.php?$titreresa?id=$idresa");
+                            header("location:reservation.php?$titreresa?id=$idresa");
                                  
                                    }
                                    else
@@ -241,6 +244,7 @@ if (isset($_POST['submit']))
                 //echo"Le mot de passe ne correspond pas !";
               //}
          }
+
 }
 ?>
  </form> 

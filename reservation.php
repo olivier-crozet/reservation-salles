@@ -90,7 +90,7 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
 
            <div class="div-affichage">
        <table class="table-affichage">  
-               <tr class=psedo-affichage>
+               <tr class="psedo-affichage">
                   <td class="taillepse">titre</td>
                   <td class="texttd">debut</td>  
                   <td date-affichage >fin</td>    
