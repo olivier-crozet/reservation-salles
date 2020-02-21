@@ -14,6 +14,7 @@ width: 100%;
 	background-image: url(../image/ballonterrainjpeg.jpeg);
 	background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 main
 {
@@ -50,9 +51,13 @@ tr
 a
 {
     text-decoration: none; 
-    
-   /* COULEUR TABLEAU */ 
+}    
+
+td
+{
+   width: 13%;
 }
+/* COULEUR TABLEAU */ 
 .red
 {
     color: red;
@@ -80,5 +85,5 @@ a
 }
 .ven
 {
-    background-color: #ff00008c;
+    background-color: #ff00002e;
 }

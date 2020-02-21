@@ -11,8 +11,8 @@ $erreur="<p> class='codeerreur'>vous n'etes pas connecté !</p>";
     }
     if (!isset($_SESSION['login'])) 
     {
-     // header ("location: connexion.php") ;
-      echo "tamere";
+      header ("location: connexion.php") ;
+    
     }
 ?>
 <!
@@ -182,8 +182,10 @@ if (isset($_POST['submit']))
                          { 
                             //preparation samedi dimache
                              $tabDate = explode('-', $_POST['date']); //FONCTION ??
+         
                              $timestamp = mktime(0, 0, 0, $tabDate[1], $tabDate[2], $tabDate[0]);//FONCTION ??
                               $jour = date('w', $timestamp);
+                              
 
                               //if samedi dimache 
                               if ($jour != "6" && $jour != "0")
@@ -206,17 +208,32 @@ if (isset($_POST['submit']))
                                         $datexxx = $datenew.$datexx;
                                       
                                         $dato = strtotime($datexxx);
-                                        //$dati = $dato + 3600 ; 
-                                     
-                                       
+                                        //$dati = $dato + 3600 ;
 
-                                   
+                                        //pas de reservation avant
+                                        $datas = date("Y-m-d");
+                                        $heuras = date("H:i:s");
+                                      
+                                        $verif = $datas.$heuras;
+                                        $verifstamp = strtotime($verif);
+
+              
+                                            if ( $verifstamp < $dato  ) 
+                                             {
+                                             
+                                             
                              $requetinser="INSERT INTO reservations(titre,description,debut,fin,id_utilisateur,tempsegonde)
                              VALUES (\"$titreresa\",\"$description\",\"$datetime\",\"$datetimefin\",\"$idresa\",\"$dato\");";                
                             $inser= mysqli_query($connexion, $requetinser);
                     
                             header("location:reservation.php?$titreresa?id=$idresa");
                                  
+                                            }
+                                            else
+                                            {
+                                              echo "la date est obsolète !";
+                                            }
+
                                    }
                                    else
                                    {
